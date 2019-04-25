@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		53B562758E5C927C73EE9AEB /* Pods_SimpleMemoryGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AEECB43981122211508E10 /* Pods_SimpleMemoryGame.framework */; };
-		746AC6CC2271DD5000A7B843 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 746AC6CB2271DD5000A7B843 /* GoogleService-Info.plist */; };
+		744EEDA32272557800D9C8B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */; };
 		746AC6CE2271E18C00A7B843 /* FirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746AC6CD2271E18C00A7B843 /* FirestoreRepository.swift */; };
 		74ACE5472271005300A6C89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE5462271005300A6C89A /* AppDelegate.swift */; };
 		74ACE5492271005300A6C89A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74ACE5482271005300A6C89A /* GameScene.sks */; };
@@ -25,7 +25,7 @@
 /* Begin PBXFileReference section */
 		25F44AA806EF105D1C6682F0 /* Pods-SimpleMemoryGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMemoryGame.debug.xcconfig"; path = "Target Support Files/Pods-SimpleMemoryGame/Pods-SimpleMemoryGame.debug.xcconfig"; sourceTree = "<group>"; };
 		4A90E762EAE9B91E154B30FD /* Pods-SimpleMemoryGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMemoryGame.release.xcconfig"; path = "Target Support Files/Pods-SimpleMemoryGame/Pods-SimpleMemoryGame.release.xcconfig"; sourceTree = "<group>"; };
-		746AC6CB2271DD5000A7B843 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		746AC6CD2271E18C00A7B843 /* FirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreRepository.swift; sourceTree = "<group>"; };
 		74ACE5432271005300A6C89A /* SimpleMemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74ACE5462271005300A6C89A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,8 +86,8 @@
 				74ACE5582271005400A6C89A /* Info.plist */,
 				74ACE55E2271022900A6C89A /* LandingScene.swift */,
 				74ACE560227110B100A6C89A /* AppButton.swift */,
-				746AC6CB2271DD5000A7B843 /* GoogleService-Info.plist */,
 				746AC6CD2271E18C00A7B843 /* FirestoreRepository.swift */,
+				744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */,
 			);
 			path = SimpleMemoryGame;
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 				74ACE5542271005400A6C89A /* Assets.xcassets in Resources */,
 				74ACE5572271005400A6C89A /* LaunchScreen.storyboard in Resources */,
 				74ACE54B2271005300A6C89A /* Actions.sks in Resources */,
-				746AC6CC2271DD5000A7B843 /* GoogleService-Info.plist in Resources */,
+				744EEDA32272557800D9C8B5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
