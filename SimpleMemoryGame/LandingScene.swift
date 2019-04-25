@@ -23,7 +23,7 @@ class LandingScene: SKScene {
     override func didMove(to view: SKView) {
         
         // Landing Title.
-        self.label = SKLabelNode(text: ">_ R3tr0_M3m0ry")
+        self.label = SKLabelNode(text: "Memory Game")
         if let label = self.label {
             addChild(label)
             label.color = .red
