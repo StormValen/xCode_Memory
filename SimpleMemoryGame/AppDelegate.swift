@@ -13,11 +13,19 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    // AdMob vairables
+    var appId = "ca-app-pub-5361617698168727~7156650421";
+    var bannerId = "ca-app-pub-5361617698168727/3401238248";
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        // AdMob implementation
+        GADMobileAds.configure(withApplicationID: appId)
+        
         return true
     }
 

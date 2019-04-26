@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseFirestore
 
-class FirestoreRepository {
+class FirestoreService {
     let k_COLLECTION_SCORE = "score"
     let db = Firestore.firestore()
     

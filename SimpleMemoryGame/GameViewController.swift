@@ -9,16 +9,21 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import FirebaseAnalytics
+import GoogleMobileAds
 
 class GameViewController: UIViewController {
+    
+    var bannerView: GADBannerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("Writing on DB")
-        let userId = UUID().uuidString          // Guardar en el userDefaults.
-        FirestoreRepository().updateUserScore(score: 11, username: "p1xelP3rfect", userId: "D908DF3D-602D-496F-BB10-402212A21F97")
-        FirestoreRepository().readUserScore()
+        // let userId = UUID().uuidString          // Guardar en el userDefaults.
+        FirestoreService().updateUserScore(score: 13, username: "p1xelP3rfect", userId: "D908DF3D-602D-496F-BB10-402212A21F97")
+        FirestoreService().readUserScore()
+        goToNextLevel(level: 8)
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -36,6 +41,10 @@ class GameViewController: UIViewController {
             view.showsFPS = false
             view.showsNodeCount = false
         }
+    }
+    
+    func goToNextLevel(level: Int) {
+        Analytics.logEvent("nextLevel", parameters: ["levelNumber": level])
     }
 
     override var shouldAutorotate: Bool {
