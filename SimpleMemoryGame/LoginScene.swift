@@ -9,6 +9,7 @@
 import SpriteKit
 import GameplayKit
 
+
 protocol LoginDelegate: class {
     func goToLandingScene(sender: LoginScene)
 }
@@ -47,11 +48,11 @@ class LoginScene: SKScene, ButtonDelegate {
         loginButton.highlightColor = .black
         loginButton.strokeColor = .clear
         addChild(loginButton)
+        
     }
     
     func onTap(sender: AppButton) {
         if (sender == loginButton) {
-            print("HEY")
             loginDelegate?.goToLandingScene(sender: self)
         }
     }

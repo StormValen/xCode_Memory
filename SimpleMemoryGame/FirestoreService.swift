@@ -92,10 +92,10 @@ class FirestoreService {
         }
     }
     
-    func registerUser() {
+    func registerUser(email: String, password: String) {
         Auth.auth().createUser(
-            withEmail: "valentin.g.l@gmail.com",
-            password: "1234aA") { authResult, error in
+            withEmail: email,
+            password: password) { authResult, error in
                 if error == nil && authResult != nil {
                     print("User created succesfully!")
                 } else {
@@ -105,13 +105,11 @@ class FirestoreService {
     }
     
     func signIn(email: String, password: String) {
-        Auth.auth().signIn(
-            withEmail: email,
-            password: password) { user, error in
+        Auth.auth().signIn( withEmail: email, password: password) { user, error in
                 if error == nil && user != nil {
-                    print("Logged!")
+                    print("LOGGED")
                 } else {
-                    print("ERROR when trying to loggin")
+                    print("ERROR when trying to sign in")
                 }
         }
     }

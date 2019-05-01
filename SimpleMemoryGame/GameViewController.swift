@@ -9,6 +9,8 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+
+import FirebaseAuth
 import FirebaseAnalytics
 import GoogleMobileAds
 
@@ -64,15 +66,14 @@ class GameViewController: UIViewController, LoginDelegate {
         return true
     }
     
+    
     func goToLandingScene(sender: LoginScene) {
-        // if let view = self.view as? SKView {
-            // let scene = GameScene(size: view.frame.size)
-            // scene.scaleMode = .aspectFill
-            // scene.backgroundColor = SKColor(named: "LightGrey")!
-            // view.presentScene(scene)
-        // }
-        // FirestoreService().registerUser()
         FirestoreService().signIn(email: "valentin.g.l@gmail.com", password: "1234aA")
-        
-    }
+            if let view = self.view as? SKView {
+                let scene = GameScene(size: view.frame.size)
+                scene.scaleMode = .aspectFill
+                scene.backgroundColor = SKColor(named: "LightGrey")!
+                view.presentScene(scene)
+            }
+        }
 }
