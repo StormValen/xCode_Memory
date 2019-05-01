@@ -12,9 +12,9 @@ import GameplayKit
 import FirebaseAnalytics
 import GoogleMobileAds
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, LoginDelegate {
     
-    var bannerView: GADBannerView!
+    // var bannerView: GADBannerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,16 @@ class GameViewController: UIViewController {
         // let userId = UUID().uuidString          // Guardar en el userDefaults.
         FirestoreService().updateUserScore(score: 13, username: "p1xelP3rfect", userId: "D908DF3D-602D-496F-BB10-402212A21F97")
         FirestoreService().readUserScore()
-        goToNextLevel(level: 8)
+        FirestoreService().getGameStats()
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let view = self.view as? SKView {
                 // Set the scale mode to scale to fit the window
-                let scene = LandingScene(size: view.frame.size)
+                let scene = LoginScene(size: view.frame.size)
+                scene.loginDelegate = self
                 scene.scaleMode = .aspectFill
-                scene.backgroundColor = SKColor(red: 0.212, green: 0.208, blue: 0.329, alpha: 1.0)
+                scene.backgroundColor = SKColor(named: "LightGrey")!
                 // Present the scene
                 view.presentScene(scene)
             }
@@ -61,5 +62,14 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func goToLandingScene(sender: LoginScene) {
+        if let view = self.view as? SKView {
+            let scene = GameScene(size: view.frame.size)
+            scene.scaleMode = .aspectFill
+            scene.backgroundColor = SKColor(named: "LightGrey")!
+            view.presentScene(scene)
+        }
     }
 }

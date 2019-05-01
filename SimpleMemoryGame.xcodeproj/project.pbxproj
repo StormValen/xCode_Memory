@@ -18,7 +18,7 @@
 		74ACE5522271005300A6C89A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ACE5502271005300A6C89A /* Main.storyboard */; };
 		74ACE5542271005400A6C89A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74ACE5532271005400A6C89A /* Assets.xcassets */; };
 		74ACE5572271005400A6C89A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ACE5552271005400A6C89A /* LaunchScreen.storyboard */; };
-		74ACE55F2271022900A6C89A /* LandingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE55E2271022900A6C89A /* LandingScene.swift */; };
+		74ACE55F2271022900A6C89A /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE55E2271022900A6C89A /* LoginScene.swift */; };
 		74ACE561227110B100A6C89A /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE560227110B100A6C89A /* AppButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +37,7 @@
 		74ACE5532271005400A6C89A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74ACE5562271005400A6C89A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74ACE5582271005400A6C89A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74ACE55E2271022900A6C89A /* LandingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScene.swift; sourceTree = "<group>"; };
+		74ACE55E2271022900A6C89A /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		74ACE560227110B100A6C89A /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		93AEECB43981122211508E10 /* Pods_SimpleMemoryGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMemoryGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,7 +84,7 @@
 				74ACE5532271005400A6C89A /* Assets.xcassets */,
 				74ACE5552271005400A6C89A /* LaunchScreen.storyboard */,
 				74ACE5582271005400A6C89A /* Info.plist */,
-				74ACE55E2271022900A6C89A /* LandingScene.swift */,
+				74ACE55E2271022900A6C89A /* LoginScene.swift */,
 				74ACE560227110B100A6C89A /* AppButton.swift */,
 				746AC6CD2271E18C00A7B843 /* FirestoreService.swift */,
 				744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */,
@@ -244,7 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74ACE55F2271022900A6C89A /* LandingScene.swift in Sources */,
+				74ACE55F2271022900A6C89A /* LoginScene.swift in Sources */,
 				746AC6CE2271E18C00A7B843 /* FirestoreService.swift in Sources */,
 				74ACE54D2271005300A6C89A /* GameScene.swift in Sources */,
 				74ACE54F2271005300A6C89A /* GameViewController.swift in Sources */,

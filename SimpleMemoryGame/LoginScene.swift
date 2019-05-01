@@ -9,16 +9,21 @@
 import SpriteKit
 import GameplayKit
 
-class LandingScene: SKScene {
+protocol LoginDelegate: class {
+    func goToLandingScene(sender: LoginScene)
+}
+
+class LoginScene: SKScene, ButtonDelegate {
+    weak var loginDelegate: LoginDelegate?
     
     static let buttonWidth: CGFloat = 200.0
     static let buttonHeight: CGFloat = 50.0
     
     // Elements Declaration
     private var label : SKLabelNode?
-    private var playButton = AppButton(
+    private var loginButton = AppButton(
         rect: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight),
-        cornerRadius: 10)
+        cornerRadius: buttonHeight / 2)
     
     override func didMove(to view: SKView) {
         
@@ -34,14 +39,21 @@ class LandingScene: SKScene {
         
         
         // ApppButtons
-        playButton.setText(text: "Proceed to game")
-        playButton.fillColor = SKColor(red: 0.0, green: 0.4, blue: 0.5, alpha: 1.0)
-        playButton.isUserInteractionEnabled = true
-        // playButton.delegate = self
-        playButton.position = CGPoint(x: (view.frame.width / 2.0) - (LandingScene.buttonWidth / 2.0), y: view.frame.height * 0.2)
-        playButton.highlightColor = .black
-        playButton.strokeColor = .clear
-        addChild(playButton)
+        loginButton.setText(text: "LOGIN")
+        loginButton.fillColor = SKColor(named: "Indigo")!
+        loginButton.isUserInteractionEnabled = true
+        loginButton.delegate = self
+        loginButton.position = CGPoint(x: (view.frame.width / 2.0) - (LoginScene.buttonWidth / 2.0), y: view.frame.height * 0.2)
+        loginButton.highlightColor = .black
+        loginButton.strokeColor = .clear
+        addChild(loginButton)
+    }
+    
+    func onTap(sender: AppButton) {
+        if (sender == loginButton) {
+            print("HEY")
+            loginDelegate?.goToLandingScene(sender: self)
+        }
     }
 }
 

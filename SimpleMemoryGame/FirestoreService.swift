@@ -11,6 +11,12 @@ import FirebaseFirestore
 
 class FirestoreService {
     let k_COLLECTION_SCORE = "score"
+    let k_COLLECTION_APP_STATS = "app_stats"
+    
+    var easyGamesNumber: String = "Default"
+    var mediumGamesNumber: String = "Default"
+    var hardGamesNumber: String = "Default"
+    
     let db = Firestore.firestore()
     
     func writeUserScore(score: Int, username: String?, userId: String) {
@@ -38,6 +44,50 @@ class FirestoreService {
                 } else {
                     snapshot?.documents.forEach({ print($0.data()) })
                 }
+        }
+    }
+    
+    func getGameStats() {
+        db.collection(k_COLLECTION_APP_STATS).getDocuments() { (querySnapshot, err) in
+            if let error = err {
+                print("Error when accessing - ", self.k_COLLECTION_APP_STATS)
+                print(error)
+            } else {
+                for doc in querySnapshot!.documents {
+                    let gameStats = doc.data()
+                    gameStats.forEach({
+                        switch($0.key) {
+                            case "easy":
+                                print("EASY: ", $0.value)
+                                // self.easyGamesNumber = $0.value as! String
+                                break;
+                            case "medium":
+                                print("MEDIUM: ", $0.value)
+                                // self.mediumGamesNumber = $0.value as! String
+                                break;
+                            case "hard":
+                                print("HARD: ", $0.value)
+                                // self.hardGamesNumber = $0.value as! String
+                                break;
+                            default:
+                                break;
+                        }
+                    })
+                }
+            }
+        }
+    }
+    
+    func getGames(lvl: String) -> String {
+        switch (lvl) {
+        case "easy":
+            return self.easyGamesNumber
+        case "medium":
+            return self.mediumGamesNumber
+        case "hard":
+            return self.hardGamesNumber
+        default:
+            return "hey"
         }
     }
 }
