@@ -8,6 +8,7 @@ target 'SimpleMemoryGame' do
   # Pods for SimpleMemoryGame
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Auth'
   pod 'Firebase/AdMob'
 
 end

@@ -65,11 +65,14 @@ class GameViewController: UIViewController, LoginDelegate {
     }
     
     func goToLandingScene(sender: LoginScene) {
-        if let view = self.view as? SKView {
-            let scene = GameScene(size: view.frame.size)
-            scene.scaleMode = .aspectFill
-            scene.backgroundColor = SKColor(named: "LightGrey")!
-            view.presentScene(scene)
-        }
+        // if let view = self.view as? SKView {
+            // let scene = GameScene(size: view.frame.size)
+            // scene.scaleMode = .aspectFill
+            // scene.backgroundColor = SKColor(named: "LightGrey")!
+            // view.presentScene(scene)
+        // }
+        // FirestoreService().registerUser()
+        FirestoreService().signIn(email: "valentin.g.l@gmail.com", password: "1234aA")
+        
     }
 }

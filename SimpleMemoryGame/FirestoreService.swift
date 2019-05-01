@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseAuth
 
 class FirestoreService {
     let k_COLLECTION_SCORE = "score"
@@ -88,6 +89,30 @@ class FirestoreService {
             return self.hardGamesNumber
         default:
             return "hey"
+        }
+    }
+    
+    func registerUser() {
+        Auth.auth().createUser(
+            withEmail: "valentin.g.l@gmail.com",
+            password: "1234aA") { authResult, error in
+                if error == nil && authResult != nil {
+                    print("User created succesfully!")
+                } else {
+                    print("ERROR when creating new user")
+                }
+        }
+    }
+    
+    func signIn(email: String, password: String) {
+        Auth.auth().signIn(
+            withEmail: email,
+            password: password) { user, error in
+                if error == nil && user != nil {
+                    print("Logged!")
+                } else {
+                    print("ERROR when trying to loggin")
+                }
         }
     }
 }
