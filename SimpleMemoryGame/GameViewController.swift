@@ -68,7 +68,7 @@ class GameViewController: UIViewController, LoginDelegate {
     
     
     func goToLandingScene(sender: LoginScene) {
-        FirestoreService().signIn(email: "valentin.g.l@gmail.com", password: "1234aA")
+        // FirestoreService().signIn(email: "valentin.g.l@gmail.com", password: "1234aA")
             if let view = self.view as? SKView {
                 let scene = GameScene(size: view.frame.size)
                 scene.scaleMode = .aspectFill

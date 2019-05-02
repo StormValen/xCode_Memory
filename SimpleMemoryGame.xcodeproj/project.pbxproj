@@ -20,6 +20,7 @@
 		74ACE5572271005400A6C89A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ACE5552271005400A6C89A /* LaunchScreen.storyboard */; };
 		74ACE55F2271022900A6C89A /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE55E2271022900A6C89A /* LoginScene.swift */; };
 		74ACE561227110B100A6C89A /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE560227110B100A6C89A /* AppButton.swift */; };
+		74DBBD77227B8CDC005CDA4E /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DBBD76227B8CDC005CDA4E /* BottomBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		74ACE5582271005400A6C89A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74ACE55E2271022900A6C89A /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		74ACE560227110B100A6C89A /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		74DBBD76227B8CDC005CDA4E /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		93AEECB43981122211508E10 /* Pods_SimpleMemoryGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleMemoryGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 				74ACE560227110B100A6C89A /* AppButton.swift */,
 				746AC6CD2271E18C00A7B843 /* FirestoreService.swift */,
 				744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */,
+				74DBBD76227B8CDC005CDA4E /* BottomBar.swift */,
 			);
 			path = SimpleMemoryGame;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				746AC6CE2271E18C00A7B843 /* FirestoreService.swift in Sources */,
 				74ACE54D2271005300A6C89A /* GameScene.swift in Sources */,
 				74ACE54F2271005300A6C89A /* GameViewController.swift in Sources */,
+				74DBBD77227B8CDC005CDA4E /* BottomBar.swift in Sources */,
 				74ACE5472271005300A6C89A /* AppDelegate.swift in Sources */,
 				74ACE561227110B100A6C89A /* AppButton.swift in Sources */,
 			);
@@ -328,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -383,7 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
