@@ -60,7 +60,7 @@ class LoginScene: SKScene, ButtonDelegate {
         self.label = SKLabelNode(text: "Sign In")
         if let label = self.label {
             addChild(label)
-            label.fontColor = SKColor(named: "Indigo")!
+            label.fontColor = SKColor(named: "Blue_3")!
             label.position = CGPoint(x: view.center.x, y: view.frame.height - view.frame.height * 0.15)
             label.run(SKAction.fadeIn(withDuration: 2.0))
         }
@@ -68,7 +68,7 @@ class LoginScene: SKScene, ButtonDelegate {
         
         // ApppButtons
         loginButton.setText(text: "SIGN IN")
-        loginButton.fillColor = SKColor(named: "Indigo")!
+        loginButton.fillColor = SKColor(named: "Blue_3")!
         loginButton.isUserInteractionEnabled = true
         loginButton.delegate = self
         loginButton.position = CGPoint(x: (view.frame.width / 2.0) - (LoginScene.buttonWidth / 2.0), y: view.frame.height - view.frame.height * 0.5)

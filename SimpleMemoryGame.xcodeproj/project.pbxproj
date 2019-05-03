@@ -10,6 +10,8 @@
 		53B562758E5C927C73EE9AEB /* Pods_SimpleMemoryGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AEECB43981122211508E10 /* Pods_SimpleMemoryGame.framework */; };
 		744EEDA32272557800D9C8B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */; };
 		746AC6CE2271E18C00A7B843 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746AC6CD2271E18C00A7B843 /* FirestoreService.swift */; };
+		74A5A966227C480F00081EDB /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5A965227C480F00081EDB /* PlayButton.swift */; };
+		74A5A968227C6AFA00081EDB /* GameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5A967227C6AFA00081EDB /* GameCard.swift */; };
 		74ACE5472271005300A6C89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE5462271005300A6C89A /* AppDelegate.swift */; };
 		74ACE5492271005300A6C89A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74ACE5482271005300A6C89A /* GameScene.sks */; };
 		74ACE54B2271005300A6C89A /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 74ACE54A2271005300A6C89A /* Actions.sks */; };
@@ -28,6 +30,8 @@
 		4A90E762EAE9B91E154B30FD /* Pods-SimpleMemoryGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleMemoryGame.release.xcconfig"; path = "Target Support Files/Pods-SimpleMemoryGame/Pods-SimpleMemoryGame.release.xcconfig"; sourceTree = "<group>"; };
 		744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		746AC6CD2271E18C00A7B843 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		74A5A965227C480F00081EDB /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
+		74A5A967227C6AFA00081EDB /* GameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCard.swift; sourceTree = "<group>"; };
 		74ACE5432271005300A6C89A /* SimpleMemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74ACE5462271005300A6C89A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74ACE5482271005300A6C89A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				746AC6CD2271E18C00A7B843 /* FirestoreService.swift */,
 				744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */,
 				74DBBD76227B8CDC005CDA4E /* BottomBar.swift */,
+				74A5A965227C480F00081EDB /* PlayButton.swift */,
+				74A5A967227C6AFA00081EDB /* GameCard.swift */,
 			);
 			path = SimpleMemoryGame;
 			sourceTree = "<group>";
@@ -250,10 +256,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				74ACE55F2271022900A6C89A /* LoginScene.swift in Sources */,
+				74A5A968227C6AFA00081EDB /* GameCard.swift in Sources */,
 				746AC6CE2271E18C00A7B843 /* FirestoreService.swift in Sources */,
 				74ACE54D2271005300A6C89A /* GameScene.swift in Sources */,
 				74ACE54F2271005300A6C89A /* GameViewController.swift in Sources */,
 				74DBBD77227B8CDC005CDA4E /* BottomBar.swift in Sources */,
+				74A5A966227C480F00081EDB /* PlayButton.swift in Sources */,
 				74ACE5472271005300A6C89A /* AppDelegate.swift in Sources */,
 				74ACE561227110B100A6C89A /* AppButton.swift in Sources */,
 			);
