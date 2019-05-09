@@ -14,7 +14,14 @@ import FirebaseAuth
 import FirebaseAnalytics
 import GoogleMobileAds
 
+import CoreLocation
+
 class GameViewController: UIViewController, LoginDelegate {
+    
+    
+    
+    
+    let locationManager = CLLocationManager()
     
     // var bannerView: GADBannerView!
 
@@ -44,6 +51,8 @@ class GameViewController: UIViewController, LoginDelegate {
             view.showsFPS = false
             view.showsNodeCount = false
         }
+        
+        initLocation()
     }
     
     func goToNextLevel(level: Int) {
@@ -68,12 +77,66 @@ class GameViewController: UIViewController, LoginDelegate {
     
     
     func goToLandingScene(sender: LoginScene) {
-        // FirestoreService().signIn(email: "valentin.g.l@gmail.com", password: "1234aA")
-            if let view = self.view as? SKView {
-                let scene = GameScene(size: view.frame.size)
-                scene.scaleMode = .aspectFill
-                scene.backgroundColor = SKColor(named: "Blue_3")!
-                view.presentScene(scene)
+    // FirestoreService().signIn(email: "valentin.g.l@gmail.com", password: "1234aA")
+        if let view = self.view as? SKView {
+            let scene = GameScene(size: view.frame.size)
+            scene.scaleMode = .aspectFill
+            scene.backgroundColor = SKColor(named: "Blue_3")!
+            view.presentScene(scene)
+        }
+    }
+    
+    func initLocation() {
+        locationManager.delegate = self
+        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    
+    func showAlert() {
+        let dialog = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok!", style: .cancel, handler: nil)
+        dialog.addAction(action)
+        present(dialog, animated: true, completion: nil)
+    }
+}
+
+
+// Location Stuff
+extension GameViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("<PERMISION> <TRUE> User has permited access to location service")
+            showAlert()
+            // Start requesting location updates.
+            locationManager.startUpdatingLocation()
+        case .denied:
+            print("<PERMISION> <FALSE> User has denied access to location service")
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        default:
+            print("<PERMISION> <DEFAULT>")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("<ERROR> ", error.localizedDescription)
+    }
+    
+    // Se le llama cada vez que se actualiza la posicion del usuario.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let officeLocation = CLLocation(latitude: 0, longitude: 0)
+        if let lastLocation = locations.last {
+            // Check if location is near location
+            if lastLocation.distance(from: officeLocation) < 50 {
+                // Show Welcome
+                print("New Location")
             }
         }
+    }
 }
