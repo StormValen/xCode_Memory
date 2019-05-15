@@ -18,9 +18,6 @@ import CoreLocation
 
 class GameViewController: UIViewController, LoginDelegate {
     
-    
-    
-    
     let locationManager = CLLocationManager()
     
     // var bannerView: GADBannerView!
@@ -76,13 +73,14 @@ class GameViewController: UIViewController, LoginDelegate {
     }
     
     
-    func goToLandingScene(sender: LoginScene) {
+    func goToGameScene(sender: LoginScene, gameMode: GameMode) {
     // FirestoreService().signIn(email: "valentin.g.l@gmail.com", password: "1234aA")
         if let view = self.view as? SKView {
             let scene = GameScene(size: view.frame.size)
+            scene.gameMode = gameMode
             scene.scaleMode = .aspectFill
             scene.backgroundColor = SKColor(named: "Blue_3")!
-            view.presentScene(scene)
+            view.presentScene(scene, transition: .crossFade(withDuration: 0.2))
         }
     }
     
