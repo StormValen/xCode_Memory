@@ -27,27 +27,29 @@ class LoginScene: SKScene, NewGameDelegate {
     
     // static let buttonWidth: CGFloat = 200.0
     // static let buttonHeight: CGFloat = 50.0
-    
-    
-    
+
     // Elements Declaration
+    private var bottomBar : BottomBar?
     private var title : SKLabelNode?
     private var globalRanking : SKLabelNode?
     private var easyRankingName : SKLabelNode?
     private var mediumRankingName : SKLabelNode?
     private var hardRankingName : SKLabelNode?
+    private var globalHighScoreName : SKLabelNode?
+    private var globalHighscoreValue: SKLabelNode?
     
     private var easyHighscore: String = " - "
     private var mediumHighscore: String = " - "
     private var hardHighscore: String = " - "
     
-    var totalGamePlayed: [String] = [" NO DATA ", " NO DATA ", " NO DATA "]
+    
+    public var totalGamePlayed: [String] = [" NO DATA ", " NO DATA ", " NO DATA ", " NO HIGHSCORES "]
     // private var loginButton = AppButton(
         // rect: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight),
         // cornerRadius: buttonHeight / 2)
     
     // Scene Elements
-    private var bottomBar : BottomBar?
+    
     
     // Variables
     let BOTTOM_BAR_HEIGHT_PERCENTAGE: CGFloat = 0.7
@@ -110,6 +112,17 @@ class LoginScene: SKScene, NewGameDelegate {
             globalRanking.isUserInteractionEnabled = false
         }
         
+        self.globalHighScoreName = SKLabelNode(text: "Global Highscore")
+        if let globalHighScoreName = self.globalHighScoreName {
+            addChild(globalHighScoreName)
+            globalHighScoreName.fontColor = SKColor(named: "Blue_1")!
+            globalHighScoreName.position = CGPoint(x: view.center.x, y: view.frame.height - view.frame.height * 0.6)
+            globalHighScoreName.run(SKAction.fadeIn(withDuration: 2.0))
+            globalHighScoreName.fontSize = 25
+            globalHighScoreName.fontName = "Futura"
+            globalHighScoreName.isUserInteractionEnabled = false
+        }
+        
         
         
         print("<DB> Reading total games played")
@@ -150,6 +163,18 @@ class LoginScene: SKScene, NewGameDelegate {
                 hardRankingName.fontSize = 15
                 hardRankingName.fontName = "Futura"
                 hardRankingName.isUserInteractionEnabled = false
+            }
+            
+            let globalHighscoreText = "{ SCORE } - { " + self.totalGamePlayed[3] + " points }"
+            self.globalHighscoreValue = SKLabelNode(text: globalHighscoreText)
+            if let globalHighscoreValue = self.globalHighscoreValue {
+                self.addChild(globalHighscoreValue)
+                globalHighscoreValue.fontColor = SKColor(named: "Blue_1")!
+                globalHighscoreValue.position = CGPoint(x: view.center.x, y: view.frame.height - view.frame.height * 0.65)
+                globalHighscoreValue.run(SKAction.fadeIn(withDuration: 2.0))
+                globalHighscoreValue.fontSize = 15
+                globalHighscoreValue.fontName = "Futura"
+                globalHighscoreValue.isUserInteractionEnabled = false
             }
         }
         

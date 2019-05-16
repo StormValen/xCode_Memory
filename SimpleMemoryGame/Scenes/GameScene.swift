@@ -238,7 +238,11 @@ class GameScene: SKScene, CardSpriteDelegate, ButtonDelegate {
                     }
                     
                     if (self.gameLogic.isGameEnded(cardSprites: self.cardsSprites)) {
-                        print("Game Ended!")
+                        print(self.gameLogic.backHighscore)
+                        if (self.gameLogic.totalPoints > self.gameLogic.backHighscore) {
+                            FirestoreService().writeGlobalScore(score: self.gameLogic.totalPoints)
+                        }
+                        self.gameSceneDelegate?.goToMenuScene(sender: self)
                     }
                 }])
                 self.run(sequence)

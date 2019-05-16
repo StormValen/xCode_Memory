@@ -28,6 +28,8 @@ class GameLogic {
     var totalPairs: Int = 0
     var pointsIncrement = 100   // Points added per match
     
+    var backHighscore: Int = 0
+    
     var currentTime: TimeInterval = 0
     var maxTime: TimeInterval = 0
     var initTime: TimeInterval = 0
@@ -64,6 +66,11 @@ class GameLogic {
     init () {
         self.totalPoints = 0
         self.isMatchReady = false
+        
+        print("<DB> Reading total games played")
+        FirestoreService().getGameStats() { (data) in
+            self.backHighscore = Int(data[3])!
+        }
     }
     
     

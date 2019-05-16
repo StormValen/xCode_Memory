@@ -14,16 +14,17 @@ class FirestoreService {
     let k_COLLECTION_SCORE = "score"
     let k_COLLECTION_APP_STATS = "app_stats"
     
-    var easyGamesNumber: String = "Default"
-    var mediumGamesNumber: String = "Default"
-    var hardGamesNumber: String = "Default"
-    
     let db = Firestore.firestore()
     
     func writeUserScore(score: Int, username: String?, userId: String) {
         // Si no existe la collection la crea, no pasa con los document.
         db.collection(k_COLLECTION_SCORE)
             .addDocument(data: ["score": score, "username": username ?? "", "userId": userId])
+    }
+    
+    func writeGlobalScore(score: Int) {
+        db.collection(k_COLLECTION_APP_STATS)
+            .document("global_highscore").setData(["score": score])
     }
     
     func updateUserScore(score: Int, username: String?, userId: String) {
@@ -76,6 +77,7 @@ class FirestoreService {
         var easy: String = ""
         var medium: String = ""
         var hard: String = ""
+        var global_highscore: String = ""
         
         db.collection(k_COLLECTION_APP_STATS).getDocuments() { (querySnapshot, err) in
             if let error = err {
@@ -98,28 +100,20 @@ class FirestoreService {
                                 hard.append("\(String(describing: $0.value))")
                                 // self.hardGamesNumber = $0.value as! String
                                 break;
+                            case "score":
+                                global_highscore.append("\(String(describing: $0.value))")
+                                // self.hardGamesNumber = $0.value as! String
+                                break;
                             default:
                                 break;
                         }
                     })
                 }
-                callback([easy, medium, hard])
+                callback([easy, medium, hard, global_highscore])
             }
         }
     }
-    
-    func getGames(lvl: String) -> String {
-        switch (lvl) {
-        case "easy":
-            return self.easyGamesNumber
-        case "medium":
-            return self.mediumGamesNumber
-        case "hard":
-            return self.hardGamesNumber
-        default:
-            return "hey"
-        }
-    }
+
     
     func registerUser(email: String, password: String) {
         Auth.auth().createUser(
