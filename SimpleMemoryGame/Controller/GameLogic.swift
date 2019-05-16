@@ -31,6 +31,8 @@ class GameLogic {
     var currentTime: TimeInterval = 0
     var maxTime: TimeInterval = 0
     var initTime: TimeInterval = 0
+    
+    var comboTime: Int = 0
     var initTimeSet: Bool = false
     
     var cardsContainer = [Card]()
@@ -135,6 +137,16 @@ class GameLogic {
         card.state = CardStatus.UNFOLDED
     }
     
+    func checkCombo() -> String {
+        if (comboTime - Int(currentTime) < 10) {
+            pointsIncrement = 200
+            return "X2"
+        } else {
+            pointsIncrement = 100
+            return "X1"
+        }
+    }
+    
     
     func setMaxTime(gameModeSelected: GameMode) {
         switch gameModeSelected {
@@ -163,5 +175,9 @@ class GameLogic {
             initTime = time
             initTimeSet = true
         }
+    }
+    
+    func setComboTime() {
+        comboTime = Int(currentTime)
     }
 }

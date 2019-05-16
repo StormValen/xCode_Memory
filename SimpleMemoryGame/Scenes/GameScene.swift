@@ -22,6 +22,7 @@ class GameScene: SKScene, CardSpriteDelegate, ButtonDelegate {
     var currentTime: TimeInterval?
     var totalPointsLabel: SKLabelNode!
     var currentTimeLabel: SKLabelNode!
+    var currentComboLabel: SKLabelNode!
     var gameModeLabel: SKLabelNode!
     
     private var backButton: AppButton?
@@ -75,6 +76,16 @@ class GameScene: SKScene, CardSpriteDelegate, ButtonDelegate {
             addChild(currentTimeLabel)
         }
         
+        self.currentComboLabel = SKLabelNode(text: "X1")
+        if let currentComboLabel = self.currentComboLabel {
+            currentComboLabel.fontColor = .black
+            currentComboLabel.verticalAlignmentMode = .center
+            currentComboLabel.fontSize = 24
+            currentComboLabel.fontName = "Futura"
+            currentComboLabel.position = CGPoint(x: 4.5 * (view.frame.width / 8), y: view.frame.height * 0.95)
+            addChild(currentComboLabel)
+        }
+        
         self.backButton = AppButton(rect: CGRect(x: 0, y: 0, width: 70, height: 30), cornerRadius: 5)
         if let backButton = backButton {
             backButton.setText(text: "BACK")
@@ -102,6 +113,8 @@ class GameScene: SKScene, CardSpriteDelegate, ButtonDelegate {
             print("TIME HAS ENDED")
             gameSceneDelegate?.goToMenuScene(sender: self)
         }
+        
+        currentComboLabel?.text = gameLogic.checkCombo()
     }
     
     func createCard(view: SKView, cards: [Card]) {
@@ -210,7 +223,7 @@ class GameScene: SKScene, CardSpriteDelegate, ButtonDelegate {
                             self.run(SKAction.playSoundFileNamed("Correct.wav", waitForCompletion: false))
                         }
                         self.totalPointsLabel?.text = String(self.gameLogic.totalPoints)
-                        
+                        self.gameLogic.setComboTime()
                         for i in 0..<self.cardsSprites.count {
                             if (self.cardsSprites[i].card?.id == self.gameLogic.selectedCard?.id) {
                                 if (self.gameLogic.selectedCard?.state == CardStatus.FOLDED) {
