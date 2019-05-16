@@ -38,7 +38,7 @@ class GameViewController: UIViewController, LoginDelegate {
                 let scene = LoginScene(size: view.frame.size)
                 scene.loginDelegate = self
                 scene.scaleMode = .aspectFill
-                scene.backgroundColor = SKColor(named: "Blue_3")!
+                scene.backgroundColor = SKColor(named: "Blue_2")!
                 // Present the scene
                 view.presentScene(scene)
             }
@@ -79,7 +79,7 @@ class GameViewController: UIViewController, LoginDelegate {
             let scene = GameScene(size: view.frame.size)
             scene.gameMode = gameMode
             scene.scaleMode = .aspectFill
-            scene.backgroundColor = SKColor(named: "Blue_3")!
+            scene.backgroundColor = SKColor(named: "Blue_2")!
             view.presentScene(scene, transition: .crossFade(withDuration: 0.2))
         }
     }

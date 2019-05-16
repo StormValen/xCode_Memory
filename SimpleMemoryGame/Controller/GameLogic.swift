@@ -37,9 +37,25 @@ class GameLogic {
     var selectedCard: Card?
     var isMatchReady: Bool
     
-    let textureBack = ["cardBack"]
-    let arrayTexturesFront = ["pogba", "cr", "grizi", "rash", "messi", "ibra", "pique", "ramos", "bape", "rak", "ney", "aguero", "gea", "de", "salah","haz",        "kante", "linde", "lewa", "vini" ,
-                         "vidal", "firm", "dyb", "cou", "chie", "icardi" ] //nombre de todas las caras
+    let textureBack = ["backCard"]
+    let arrayTexturesFront = [
+        "icon-angular",
+        "icon-bitbucket",
+        "icon-chrome",
+        "icon-css",
+        "icon-edge",
+        "icon-git",
+        "icon-github",
+        "icon-gitlab",
+        "icon-html",
+        "icon-js",
+        "icon-mysql",
+        "icon-node",
+        "icon-npm",
+        "icon-python",
+        "icon-react",
+        "icon-slack",
+        "icon-vue"] //nombre de todas las caras
     
     
     

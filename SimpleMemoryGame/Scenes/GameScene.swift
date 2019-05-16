@@ -24,7 +24,7 @@ class GameScene: SKScene, CardSpriteDelegate {
     
     override func didMove(to view: SKView) {
         
-        backgroundColor = SKColor(named: "Blue_3")!
+        backgroundColor = SKColor(named: "Blue_1")!
         
         //ratios
         let widthRatio = frame.width / 2
@@ -159,7 +159,7 @@ class GameScene: SKScene, CardSpriteDelegate {
                     let stateMatch: MatchState = self.gameLogic.checkMatch(card: card)
                     
                     if (stateMatch == MatchState.INCORRECT) {
-                        print("i")
+                        print(card.texturePathFront)
                         // AUDIO
                         
                         print(card.state)
