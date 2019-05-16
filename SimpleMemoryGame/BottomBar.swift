@@ -10,9 +10,10 @@ import SpriteKit
 
 protocol NewGameDelegate: class {
     func toggleBottomBar(sender: BottomBar)
+    func startGame(sender: PlayButton, gameMode: GameMode)
 }
 
-class BottomBar: SKShapeNode {
+class BottomBar: SKShapeNode, PlayButtonDelegate {
     
     let DRAG_RECT_WIDTH : CGFloat = 80.0
     let BUTTON_RECT_WIDTH : CGFloat = 80.0
@@ -42,7 +43,9 @@ class BottomBar: SKShapeNode {
         if let easyButton = easyButton {
             easyButton.fillColor = SKColor(named: "Blue_2")!
             easyButton.strokeColor = .clear
-            easyButton.setText(title: "Easy", subtitle: "3x3", pos: CGPoint(x: frame.origin.x + 20.0, y: frame.height - 190.0))
+            easyButton.delegate = self
+            easyButton.isUserInteractionEnabled = true
+            easyButton.setText(title: "Easy", subtitle: "3x4", pos: CGPoint(x: frame.origin.x + 20.0, y: frame.height - 190.0))
             addChild(easyButton)
         }
         
@@ -57,7 +60,9 @@ class BottomBar: SKShapeNode {
         if let mediumButton = mediumButton {
             mediumButton.fillColor = SKColor(named: "Blue_2")!
             mediumButton.strokeColor = .clear
-            mediumButton.setText(title: "Medium", subtitle: "3x3", pos: CGPoint(x: frame.origin.x + 20.0, y: frame.height - 190.0 - 90.0))
+            mediumButton.delegate = self
+            mediumButton.isUserInteractionEnabled = true
+            mediumButton.setText(title: "Medium", subtitle: "4x5", pos: CGPoint(x: frame.origin.x + 20.0, y: frame.height - 190.0 - 90.0))
             addChild(mediumButton)
         }
         
@@ -72,7 +77,9 @@ class BottomBar: SKShapeNode {
         if let hardButton = hardButton {
             hardButton.fillColor = SKColor(named: "Blue_2")!
             hardButton.strokeColor = .clear
-            hardButton.setText(title: "Hard", subtitle: "3x3", pos: CGPoint(x: frame.origin.x + 20.0, y: frame.height - 190.0 - 90.0 - 90.0))
+            hardButton.delegate = self
+            hardButton.isUserInteractionEnabled = true
+            hardButton.setText(title: "Hard", subtitle: "5x6", pos: CGPoint(x: frame.origin.x + 20.0, y: frame.height - 190.0 - 90.0 - 90.0))
             addChild(hardButton)
         }
     }
@@ -117,6 +124,27 @@ class BottomBar: SKShapeNode {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let delegate = delegate {
             delegate.toggleBottomBar(sender: self)
+        }
+    }
+    
+    func onTap(sender: PlayButton) {
+        if (sender == easyButton) {
+            print("EASY MODE ********")
+            if let delegate = delegate {
+                delegate.startGame(sender: sender, gameMode: GameMode.EASY)
+            }
+        }
+        if (sender == mediumButton) {
+            print("MEDIUM MODE ********")
+            if let delegate = delegate {
+                delegate.startGame(sender: sender, gameMode: GameMode.MEDIUM)
+            }
+        }
+        if (sender == hardButton) {
+            print("HARD MODE ********")
+            if let delegate = delegate {
+                delegate.startGame(sender: sender, gameMode: GameMode.HARD)
+            }
         }
     }
     

@@ -39,4 +39,10 @@ class PlayButton: SKShapeNode {
         }
         buttonSubtitle.text = subtitle
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let delegate = delegate {
+            delegate.onTap(sender: self)
+        }
+    }
 }

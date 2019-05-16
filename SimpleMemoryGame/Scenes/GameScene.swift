@@ -98,7 +98,7 @@ class GameScene: SKScene, CardSpriteDelegate {
                 else if(i>=8){
                     cardsSprites[i].position = CGPoint(x: 5 * view.frame.width/6, y: (xRatio/320 + CGFloat(i-8)) * view.frame.height / 5)
                 }
-                cardsSprites[i].size = CGSize(width: xRatio/1.5, height: xRatio/1.5)
+                cardsSprites[i].size = CGSize(width: xRatio/1.9, height: xRatio/1.9)
             }
             else if gameMode == GameMode.MEDIUM {
                 if(i<5){
@@ -113,7 +113,7 @@ class GameScene: SKScene, CardSpriteDelegate {
                 else if(i>=15){
                     cardsSprites[i].position = CGPoint(x: 7 * view.frame.width/8, y: ((xRatio/320 + 0.1) + CGFloat(i-15)) * view.frame.height /  6.5)
                 }
-                cardsSprites[i].size = CGSize(width: xRatio/2, height: xRatio/2)
+                cardsSprites[i].size = CGSize(width: xRatio/2.4, height: xRatio/2.4)
             }
             else if gameMode == GameMode.HARD{
                 if(i<6){
@@ -131,7 +131,7 @@ class GameScene: SKScene, CardSpriteDelegate {
                 else if(i>=24){
                     cardsSprites[i].position = CGPoint(x: 9 * view.frame.width/10, y: ((xRatio/320 + 0.1) + CGFloat(i-24)) * view.frame.height /  7.8)
                 }
-                cardsSprites[i].size = CGSize(width: xRatio/2.5, height: xRatio/2.5)
+                cardsSprites[i].size = CGSize(width: xRatio/2.9, height: xRatio/2.9)
                 
             }
             scene?.addChild(cardsSprites[i])
@@ -159,10 +159,8 @@ class GameScene: SKScene, CardSpriteDelegate {
                     let stateMatch: MatchState = self.gameLogic.checkMatch(card: card)
                     
                     if (stateMatch == MatchState.INCORRECT) {
-                        print(card.texturePathFront)
                         // AUDIO
                         
-                        print(card.state)
                         if (card.state == CardStatus.FOLDED) {
                             sender.flipCard(texture: sender.texturePathBack)
                         }

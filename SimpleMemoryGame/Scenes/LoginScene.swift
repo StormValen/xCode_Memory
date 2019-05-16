@@ -98,9 +98,9 @@ class LoginScene: SKScene, NewGameDelegate {
     
     func toggleBottomBar(sender: BottomBar) {
         if let bottomBar = bottomBar {
-            if (sender == bottomBar) {
-                loginDelegate?.goToGameScene(sender: self, gameMode: GameMode.MEDIUM)
-            }
+            // if (sender == bottomBar) {
+                // loginDelegate?.goToGameScene(sender: self, gameMode: GameMode.EASY)
+            // }
             if (bottomBar.getState()) {
                 bottomBar.setState(newState: false)
                 bottomBar.run(SKAction.moveBy(x: 0, y: -320, duration: 0.2))
@@ -113,11 +113,9 @@ class LoginScene: SKScene, NewGameDelegate {
         }
     }
     
-    func onTap(sender: AppButton) {
+    func startGame(sender: PlayButton, gameMode: GameMode) {
         // FirestoreService().signIn(email: "valentin.g.l@gmail.com", password: "1234aA")
-        if (sender == bottomBar) {
-            loginDelegate?.goToGameScene(sender: self, gameMode: GameMode.EASY)
-        }
+        loginDelegate?.goToGameScene(sender: self, gameMode: gameMode)
     }
 }
 
