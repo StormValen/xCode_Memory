@@ -9,8 +9,12 @@
 import SpriteKit
 import GameplayKit
 
+protocol GameSceneDelegate: class {
+    func goToMenuScene(sender: GameScene)
+}
 
-class GameScene: SKScene, CardSpriteDelegate {
+class GameScene: SKScene, CardSpriteDelegate, ButtonDelegate {
+    weak var gameSceneDelegate: GameSceneDelegate?
     
     var gameMode: GameMode?
     let gameLogic: GameLogic = GameLogic()
@@ -20,13 +24,14 @@ class GameScene: SKScene, CardSpriteDelegate {
     var currentTimeLabel: SKLabelNode!
     var gameModeLabel: SKLabelNode!
     
+    private var backButton: AppButton?
+    
     var cardsSprites = [CardSprite]()
     
     override func didMove(to view: SKView) {
         
         backgroundColor = SKColor(named: "Blue_1")!
         
-        //ratios
         let widthRatio = frame.width / 2
         // let heightRatio = widthRatio / 4.1
         
@@ -60,8 +65,6 @@ class GameScene: SKScene, CardSpriteDelegate {
             addChild(totalPointsLabel)
         }
         
-        
-        
         self.currentTimeLabel = SKLabelNode(text: "000")
         if let currentTimeLabel = self.currentTimeLabel {
             currentTimeLabel.fontColor = .black
@@ -71,7 +74,34 @@ class GameScene: SKScene, CardSpriteDelegate {
             currentTimeLabel.position = CGPoint(x: 4.5 * (view.frame.width / 8), y: view.frame.height * 0.91)
             addChild(currentTimeLabel)
         }
-
+        
+        self.backButton = AppButton(rect: CGRect(x: 0, y: 0, width: 70, height: 30), cornerRadius: 5)
+        if let backButton = backButton {
+            backButton.setText(text: "BACK")
+            backButton.fillColor = SKColor(named: "Blue_2")!
+            backButton.isUserInteractionEnabled = true
+            backButton.delegate = self
+            backButton.position = CGPoint(x: 0, y: view.frame.height * 0.91)
+            backButton.highlightColor = .black
+            backButton.strokeColor = .clear
+            addChild(backButton)
+        }
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        gameLogic.setGameTime(time: currentTime)
+        gameLogic.currentTime = gameLogic.maxTime - (currentTime - gameLogic.initTime)
+        
+        if (gameLogic.currentTime <= 0) {
+            currentTimeLabel?.text = "0"
+        } else {
+            currentTimeLabel?.text = String(Int(gameLogic.currentTime))
+        }
+        
+        if (gameLogic.checkCurrentTime()) {
+            print("TIME HAS ENDED")
+            gameSceneDelegate?.goToMenuScene(sender: self)
+        }
     }
     
     func createCard(view: SKView, cards: [Card]) {
@@ -98,7 +128,7 @@ class GameScene: SKScene, CardSpriteDelegate {
                 else if(i>=8){
                     cardsSprites[i].position = CGPoint(x: 5 * view.frame.width/6, y: (xRatio/320 + CGFloat(i-8)) * view.frame.height / 5)
                 }
-                cardsSprites[i].size = CGSize(width: xRatio/1.9, height: xRatio/1.9)
+                cardsSprites[i].size = CGSize(width: xRatio/1.5, height: xRatio/1.5)
             }
             else if gameMode == GameMode.MEDIUM {
                 if(i<5){
@@ -113,7 +143,7 @@ class GameScene: SKScene, CardSpriteDelegate {
                 else if(i>=15){
                     cardsSprites[i].position = CGPoint(x: 7 * view.frame.width/8, y: ((xRatio/320 + 0.1) + CGFloat(i-15)) * view.frame.height /  6.5)
                 }
-                cardsSprites[i].size = CGSize(width: xRatio/2.4, height: xRatio/2.4)
+                cardsSprites[i].size = CGSize(width: xRatio/2.0, height: xRatio/2.0)
             }
             else if gameMode == GameMode.HARD{
                 if(i<6){
@@ -131,27 +161,27 @@ class GameScene: SKScene, CardSpriteDelegate {
                 else if(i>=24){
                     cardsSprites[i].position = CGPoint(x: 9 * view.frame.width/10, y: ((xRatio/320 + 0.1) + CGFloat(i-24)) * view.frame.height /  7.8)
                 }
-                cardsSprites[i].size = CGSize(width: xRatio/2.9, height: xRatio/2.9)
+                cardsSprites[i].size = CGSize(width: xRatio/2.5, height: xRatio/2.5)
                 
             }
             scene?.addChild(cardsSprites[i])
         }
     }
     
+    func onTap(sender: AppButton) {
+        gameSceneDelegate?.goToMenuScene(sender: self)
+    }
+    
     func onTap(sender: CardSprite) {
         guard let card = sender.card else {
             return
         }
-        
-        
-        
         if (card.state != CardStatus.UNFOLDED && card.state != CardStatus.MATCHED) {
             
             gameLogic.changeCardStatus(card: card)
+            
             if card.state == CardStatus.UNFOLDED {
                 sender.flipCard(texture: sender.texturePathFront)
-                
-                
                 let wait = SKAction.wait(forDuration: 1)
                 
                 let sequence = SKAction.sequence([wait, SKAction.run {
@@ -159,7 +189,9 @@ class GameScene: SKScene, CardSpriteDelegate {
                     let stateMatch: MatchState = self.gameLogic.checkMatch(card: card)
                     
                     if (stateMatch == MatchState.INCORRECT) {
-                        // AUDIO
+                        if AudioController.shared.volumeOn {
+                            self.run(SKAction.playSoundFileNamed("Incorrect.wav", waitForCompletion: false))
+                        }
                         
                         if (card.state == CardStatus.FOLDED) {
                             sender.flipCard(texture: sender.texturePathBack)
@@ -174,9 +206,9 @@ class GameScene: SKScene, CardSpriteDelegate {
                             }
                         }
                     } else if (stateMatch == MatchState.CORRECT) {
-                        
-                        // AUDIO
-                        
+                        if AudioController.shared.volumeOn {
+                            self.run(SKAction.playSoundFileNamed("Correct.wav", waitForCompletion: false))
+                        }
                         self.totalPointsLabel?.text = String(self.gameLogic.totalPoints)
                         
                         for i in 0..<self.cardsSprites.count {

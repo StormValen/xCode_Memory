@@ -129,19 +129,16 @@ class BottomBar: SKShapeNode, PlayButtonDelegate {
     
     func onTap(sender: PlayButton) {
         if (sender == easyButton) {
-            print("EASY MODE ********")
             if let delegate = delegate {
                 delegate.startGame(sender: sender, gameMode: GameMode.EASY)
             }
         }
         if (sender == mediumButton) {
-            print("MEDIUM MODE ********")
             if let delegate = delegate {
                 delegate.startGame(sender: sender, gameMode: GameMode.MEDIUM)
             }
         }
         if (sender == hardButton) {
-            print("HARD MODE ********")
             if let delegate = delegate {
                 delegate.startGame(sender: sender, gameMode: GameMode.HARD)
             }

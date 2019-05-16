@@ -12,6 +12,8 @@
 		7404DC2D228C9B6C0076B97D /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404DC2C228C9B6C0076B97D /* GameLogic.swift */; };
 		744EEDA32272557800D9C8B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */; };
 		746AC6CE2271E18C00A7B843 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746AC6CD2271E18C00A7B843 /* FirestoreService.swift */; };
+		74970B3A228DDB71002C9850 /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74970B38228DDB71002C9850 /* Correct.wav */; };
+		74970B3B228DDB71002C9850 /* Incorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74970B39228DDB71002C9850 /* Incorrect.wav */; };
 		74A5A966227C480F00081EDB /* PlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5A965227C480F00081EDB /* PlayButton.swift */; };
 		74A5A968227C6AFA00081EDB /* CardSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A5A967227C6AFA00081EDB /* CardSprite.swift */; };
 		74ACE5472271005300A6C89A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE5462271005300A6C89A /* AppDelegate.swift */; };
@@ -24,6 +26,7 @@
 		74ACE5572271005400A6C89A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74ACE5552271005400A6C89A /* LaunchScreen.storyboard */; };
 		74ACE55F2271022900A6C89A /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE55E2271022900A6C89A /* LoginScene.swift */; };
 		74ACE561227110B100A6C89A /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE560227110B100A6C89A /* AppButton.swift */; };
+		74ADE9EA228DD7D700BC0ACD /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADE9E9228DD7D700BC0ACD /* AudioController.swift */; };
 		74DBBD77227B8CDC005CDA4E /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DBBD76227B8CDC005CDA4E /* BottomBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +37,8 @@
 		7404DC2C228C9B6C0076B97D /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		746AC6CD2271E18C00A7B843 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		74970B38228DDB71002C9850 /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Correct.wav; sourceTree = "<group>"; };
+		74970B39228DDB71002C9850 /* Incorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Incorrect.wav; sourceTree = "<group>"; };
 		74A5A965227C480F00081EDB /* PlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayButton.swift; sourceTree = "<group>"; };
 		74A5A967227C6AFA00081EDB /* CardSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSprite.swift; sourceTree = "<group>"; };
 		74ACE5432271005300A6C89A /* SimpleMemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleMemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +53,7 @@
 		74ACE5582271005400A6C89A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74ACE55E2271022900A6C89A /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		74ACE560227110B100A6C89A /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		74ADE9E9228DD7D700BC0ACD /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		74DBBD76227B8CDC005CDA4E /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		74FA087A2284576500B04EB7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		74FA087B2284576600B04EB7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -78,6 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				74A5A967227C6AFA00081EDB /* CardSprite.swift */,
+				74DBBD76227B8CDC005CDA4E /* BottomBar.swift */,
+				74A5A965227C480F00081EDB /* PlayButton.swift */,
+				74ACE560227110B100A6C89A /* AppButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -86,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				7404DC2C228C9B6C0076B97D /* GameLogic.swift */,
+				74ACE54E2271005300A6C89A /* GameViewController.swift */,
+				74ADE9E9228DD7D700BC0ACD /* AudioController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -97,6 +108,16 @@
 				74ACE54C2271005300A6C89A /* GameScene.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		74970B37228DDB71002C9850 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				74970B38228DDB71002C9850 /* Correct.wav */,
+				74970B39228DDB71002C9850 /* Incorrect.wav */,
+			);
+			name = Audio;
+			path = ../../Audio;
 			sourceTree = "<group>";
 		};
 		74ACE53A2271005300A6C89A = {
@@ -120,6 +141,9 @@
 		74ACE5452271005300A6C89A /* SimpleMemoryGame */ = {
 			isa = PBXGroup;
 			children = (
+				74970B37228DDB71002C9850 /* Audio */,
+				74ACE5532271005400A6C89A /* Assets.xcassets */,
+				74ADE9E8228DD6DE00BC0ACD /* Services */,
 				7404DC2E228CBF840076B97D /* Scenes */,
 				7404DC2B228C9B410076B97D /* Controller */,
 				7404DC2A228C97FB0076B97D /* View */,
@@ -127,18 +151,20 @@
 				74ACE5462271005300A6C89A /* AppDelegate.swift */,
 				74ACE54A2271005300A6C89A /* Actions.sks */,
 				74ACE5482271005300A6C89A /* GameScene.sks */,
-				74ACE54E2271005300A6C89A /* GameViewController.swift */,
 				74ACE5502271005300A6C89A /* Main.storyboard */,
-				74ACE5532271005400A6C89A /* Assets.xcassets */,
 				74ACE5552271005400A6C89A /* LaunchScreen.storyboard */,
 				74ACE5582271005400A6C89A /* Info.plist */,
-				74ACE560227110B100A6C89A /* AppButton.swift */,
-				746AC6CD2271E18C00A7B843 /* FirestoreService.swift */,
 				744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */,
-				74DBBD76227B8CDC005CDA4E /* BottomBar.swift */,
-				74A5A965227C480F00081EDB /* PlayButton.swift */,
 			);
 			path = SimpleMemoryGame;
+			sourceTree = "<group>";
+		};
+		74ADE9E8228DD6DE00BC0ACD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				746AC6CD2271E18C00A7B843 /* FirestoreService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D76650D188EC3421E650F128 /* Frameworks */ = {
@@ -220,10 +246,12 @@
 			files = (
 				74ACE5522271005300A6C89A /* Main.storyboard in Resources */,
 				74ACE5492271005300A6C89A /* GameScene.sks in Resources */,
+				74970B3B228DDB71002C9850 /* Incorrect.wav in Resources */,
 				74ACE5542271005400A6C89A /* Assets.xcassets in Resources */,
 				74ACE5572271005400A6C89A /* LaunchScreen.storyboard in Resources */,
 				74ACE54B2271005300A6C89A /* Actions.sks in Resources */,
 				744EEDA32272557800D9C8B5 /* GoogleService-Info.plist in Resources */,
+				74970B3A228DDB71002C9850 /* Correct.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +333,7 @@
 				74A5A966227C480F00081EDB /* PlayButton.swift in Sources */,
 				7404DC29228C965F0076B97D /* Card.swift in Sources */,
 				74ACE5472271005300A6C89A /* AppDelegate.swift in Sources */,
+				74ADE9EA228DD7D700BC0ACD /* AudioController.swift in Sources */,
 				74ACE561227110B100A6C89A /* AppButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
