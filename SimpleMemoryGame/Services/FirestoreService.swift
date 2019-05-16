@@ -34,6 +34,29 @@ class FirestoreService {
             .setData(["score": score, "username": username ?? "", "userId": userId])
     }
     
+    func addGamePlayed(gameStats: [String], gameMode: GameMode) {
+        var gStats = gameStats
+        var statToAdd: Int = 0
+        switch gameMode {
+        case .EASY:
+            statToAdd = Int(gameStats[0])!
+            statToAdd += 1
+            gStats = [String(statToAdd), gameStats[1], gameStats[2]]
+            break;
+        case .MEDIUM:
+            statToAdd = Int(gameStats[1])!
+            statToAdd += 1
+            gStats = [gameStats[0], String(statToAdd), gameStats[2]]
+            break;
+        case .HARD:
+            statToAdd = Int(gameStats[2])!
+            statToAdd += 1
+            gStats = [gameStats[0], gameStats[1], String(statToAdd)]
+            break;
+        }
+        db.collection(k_COLLECTION_APP_STATS).document("games").setData(["easy": gStats[0], "medium": gStats[1], "hard": gStats[2]])
+    }
+    
     func readUserScore() {
         db.collection(k_COLLECTION_SCORE)
             .whereField("score", isGreaterThan: 0)
@@ -48,7 +71,12 @@ class FirestoreService {
         }
     }
     
-    func getGameStats() {
+    func getGameStats(_ callback: @escaping (([String]) -> Void)) {
+        
+        var easy: String = ""
+        var medium: String = ""
+        var hard: String = ""
+        
         db.collection(k_COLLECTION_APP_STATS).getDocuments() { (querySnapshot, err) in
             if let error = err {
                 print("Error when accessing - ", self.k_COLLECTION_APP_STATS)
@@ -59,15 +87,15 @@ class FirestoreService {
                     gameStats.forEach({
                         switch($0.key) {
                             case "easy":
-                                print("EASY: ", $0.value)
+                                easy.append("\(String(describing: $0.value))")
                                 // self.easyGamesNumber = $0.value as! String
                                 break;
                             case "medium":
-                                print("MEDIUM: ", $0.value)
+                                medium.append("\(String(describing: $0.value))")
                                 // self.mediumGamesNumber = $0.value as! String
                                 break;
                             case "hard":
-                                print("HARD: ", $0.value)
+                                hard.append("\(String(describing: $0.value))")
                                 // self.hardGamesNumber = $0.value as! String
                                 break;
                             default:
@@ -75,6 +103,7 @@ class FirestoreService {
                         }
                     })
                 }
+                callback([easy, medium, hard])
             }
         }
     }

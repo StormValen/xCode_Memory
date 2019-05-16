@@ -25,11 +25,7 @@ class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Writing on DB")
-        // let userId = UUID().uuidString          // Guardar en el userDefaults.
-        FirestoreService().updateUserScore(score: 13, username: "p1xelP3rfect", userId: "D908DF3D-602D-496F-BB10-402212A21F97")
-        FirestoreService().readUserScore()
-        FirestoreService().getGameStats()
+        
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'

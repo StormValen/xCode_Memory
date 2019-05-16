@@ -31,7 +31,11 @@ class GameScene: SKScene, CardSpriteDelegate, ButtonDelegate {
     
     override func didMove(to view: SKView) {
         
-        backgroundColor = SKColor(named: "Blue_1")!
+        // print("Writing on DB")
+        // let userId = UUID().uuidString          // Guardar en el userDefaults.
+        // FirestoreService().updateUserScore(score: 13, username: "p1xelP3rfect", userId: "D908DF3D-602D-496F-BB10-402212A21F97")
+        // FirestoreService().readUserScore()
+        // FirestoreService().getGameStats()
         
         let widthRatio = frame.width / 2
         // let heightRatio = widthRatio / 4.1
