@@ -50,11 +50,11 @@ class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate {
     }
     
     func analyticsNewGame(gameMode: GameMode) {
-        Analytics.logEvent("level_played", parameters: ["game_mode": gameMode])
+        Analytics.logEvent("level_played", parameters: [:])
     }
     
     func analyticsAppStart() {
-        Analytics.logEvent("app_start", parameters: ["app_start": true])
+        Analytics.logEvent("app_start", parameters: [:])
     }
 
     override var shouldAutorotate: Bool {
