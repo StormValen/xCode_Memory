@@ -46,10 +46,15 @@ class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate {
         }
         
         initLocation()
+        analyticsAppStart()
     }
     
-    func goToNextLevel(level: Int) {
-        Analytics.logEvent("nextLevel", parameters: ["levelNumber": level])
+    func analyticsNewGame(gameMode: GameMode) {
+        Analytics.logEvent("level_played", parameters: ["game_mode": gameMode])
+    }
+    
+    func analyticsAppStart() {
+        Analytics.logEvent("app_start", parameters: ["app_start": true])
     }
 
     override var shouldAutorotate: Bool {
@@ -72,6 +77,7 @@ class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate {
     func goToGameScene(sender: LoginScene, gameMode: GameMode) {
     // FirestoreService().signIn(email: "valentin.g.l@gmail.com", password: "1234aA")
         if let view = self.view as? SKView {
+            self.analyticsNewGame(gameMode: gameMode)
             let scene = GameScene(size: view.frame.size)
             scene.gameMode = gameMode
             scene.gameSceneDelegate = self
