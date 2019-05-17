@@ -26,6 +26,7 @@ class AppButton: SKShapeNode {
             textNode.fontName = "Futura"
             textNode.fontSize = 15
             textNode.verticalAlignmentMode = .center
+            textNode.fontColor = SKColor(named: "Blue_1")
             textNode.position = CGPoint(x: frame.width / 2.0, y: frame.height / 2.0)
         }
         textNode.text = text
@@ -33,6 +34,7 @@ class AppButton: SKShapeNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let highlightColor = highlightColor {
+            self.textNode.fontColor = SKColor(named: "Blue_2")
             originalColor = fillColor
             fillColor = highlightColor
         }
@@ -41,6 +43,7 @@ class AppButton: SKShapeNode {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let _ = highlightColor {
             fillColor = originalColor
+            self.textNode.fontColor = SKColor(named: "Blue_1")
         }
         if let touch = touches.first, let parent = parent {
             if frame.contains(touch.location(in: parent)) {

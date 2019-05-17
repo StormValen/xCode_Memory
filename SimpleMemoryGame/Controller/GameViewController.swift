@@ -39,7 +39,7 @@ class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate {
                 view.presentScene(scene)
             }
             
-            view.ignoresSiblingOrder = true
+            // view.ignoresSiblingOrder = true
             
             view.showsFPS = false
             view.showsNodeCount = false

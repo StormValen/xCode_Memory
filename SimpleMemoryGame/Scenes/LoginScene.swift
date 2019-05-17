@@ -78,18 +78,6 @@ class LoginScene: SKScene, NewGameDelegate {
         // FirestoreService().updateUserScore(score: 13, username: "p1xelP3rfect", userId: "D908DF3D-602D-496F-BB10-402212A21F97")
         // FirestoreService().readUserScore()
         
-        bottomBar = BottomBar(rect: CGRect(x: 0, y: 0, width: view.frame.width, height: 400))
-        if let bottomBar = bottomBar {
-            bottomBar.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: view.frame.width, height: 400), byRoundingCorners: BOTTOM_BAR_CORNERS, cornerRadii: CGSize(width: 20, height: 20)).cgPath
-            bottomBar.setText(text: "New Game")
-            bottomBar.setButtons()
-            bottomBar.fillColor = SKColor(named: "Blue_1")!
-            bottomBar.isUserInteractionEnabled = true
-            bottomBar.position = CGPoint(x: 0, y: -320)
-            bottomBar.strokeColor = .clear
-            bottomBar.delegate = self
-            addChild(bottomBar)
-        }
         
         self.title = SKLabelNode(text: "</CODE LABS>")
         if let title = self.title {
@@ -176,7 +164,23 @@ class LoginScene: SKScene, NewGameDelegate {
                 globalHighscoreValue.fontName = "Futura"
                 globalHighscoreValue.isUserInteractionEnabled = false
             }
+            
+            self.bottomBar = BottomBar(rect: CGRect(x: 0, y: 0, width: view.frame.width, height: 400))
+            if let bottomBar = self.bottomBar {
+                bottomBar.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: view.frame.width, height: 400), byRoundingCorners: self.BOTTOM_BAR_CORNERS, cornerRadii: CGSize(width: 20, height: 20)).cgPath
+                bottomBar.setText(text: "New Game")
+                bottomBar.setButtons()
+                bottomBar.fillColor = SKColor(named: "Blue_1")!
+                bottomBar.isUserInteractionEnabled = true
+                bottomBar.position = CGPoint(x: 0, y: -320)
+                bottomBar.strokeColor = .clear
+                bottomBar.delegate = self
+                self.addChild(bottomBar)
+            }
         }
+        
+        
+        
         
         
         // ApppButtons

@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 enum GameMode: Int {
     case EASY     = 12     // 3 X 4
     case MEDIUM   = 20     // 4 X 5
@@ -59,9 +57,7 @@ class GameLogic {
         "icon-python",
         "icon-react",
         "icon-slack",
-        "icon-vue"] //nombre de todas las caras
-    
-    
+        "icon-vue"]
     
     init () {
         self.totalPoints = 0

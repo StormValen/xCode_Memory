@@ -62,43 +62,47 @@ class GameScene: SKScene, CardSpriteDelegate, ButtonDelegate {
         
         self.totalPointsLabel = SKLabelNode(text: String(gameLogic.totalPoints))
         if let totalPointsLabel = self.totalPointsLabel {
-            totalPointsLabel.fontColor = .black
-            totalPointsLabel.verticalAlignmentMode = .center
-            totalPointsLabel.fontSize = 24
+            totalPointsLabel.fontColor = SKColor(named: "Blue_1")!
+            // totalPointsLabel.verticalAlignmentMode = .center
+            totalPointsLabel.horizontalAlignmentMode = .left
+            totalPointsLabel.fontSize = 15
             totalPointsLabel.fontName = "Futura"
-            totalPointsLabel.position = CGPoint(x: 6.5 * (view.frame.width / 8), y: view.frame.height * 0.91)
+            totalPointsLabel.position = CGPoint(x: (view.frame.width / 2) + 60, y: view.frame.height * 0.90 + 12)
             addChild(totalPointsLabel)
         }
         
         self.currentTimeLabel = SKLabelNode(text: "000")
         if let currentTimeLabel = self.currentTimeLabel {
-            currentTimeLabel.fontColor = .black
-            currentTimeLabel.verticalAlignmentMode = .center
-            currentTimeLabel.fontSize = 24
+            currentTimeLabel.fontColor = SKColor(named: "Blue_1")!
+            // currentTimeLabel.verticalAlignmentMode = .center
+            currentTimeLabel.horizontalAlignmentMode = .center
+            currentTimeLabel.fontSize = 40
             currentTimeLabel.fontName = "Futura"
-            currentTimeLabel.position = CGPoint(x: 4.5 * (view.frame.width / 8), y: view.frame.height * 0.91)
+            currentTimeLabel.position = CGPoint(x: view.frame.width / 2, y: view.frame.height * 0.90 - 45)
             addChild(currentTimeLabel)
         }
         
         self.currentComboLabel = SKLabelNode(text: "X1")
         if let currentComboLabel = self.currentComboLabel {
-            currentComboLabel.fontColor = .black
-            currentComboLabel.verticalAlignmentMode = .center
-            currentComboLabel.fontSize = 24
+            currentComboLabel.fontColor = SKColor(named: "Blue_1")!
+            // currentComboLabel.verticalAlignmentMode = .center
+            currentComboLabel.horizontalAlignmentMode = .right
+            currentComboLabel.fontSize = 15
             currentComboLabel.fontName = "Futura"
-            currentComboLabel.position = CGPoint(x: 4.5 * (view.frame.width / 8), y: view.frame.height * 0.95)
+            currentComboLabel.position = CGPoint(x: (view.frame.width / 2) - 60, y: view.frame.height * 0.90 + 12)
             addChild(currentComboLabel)
         }
         
-        self.backButton = AppButton(rect: CGRect(x: 0, y: 0, width: 70, height: 30), cornerRadius: 5)
+        self.backButton = AppButton(rect: CGRect(x: 0, y: 0, width: 100, height: 40), cornerRadius: 20)
         if let backButton = backButton {
-            backButton.setText(text: "BACK")
-            backButton.fillColor = SKColor(named: "Blue_2")!
+            backButton.setText(text: "HOME")
+            // backButton.fillColor = SKColor(named: "Blue_1")!
             backButton.isUserInteractionEnabled = true
             backButton.delegate = self
-            backButton.position = CGPoint(x: 0, y: view.frame.height * 0.91)
-            backButton.highlightColor = .black
-            backButton.strokeColor = .clear
+            backButton.position = CGPoint(x: (view.frame.width / 2) - 50, y: view.frame.height * 0.90)
+            backButton.highlightColor = SKColor(named: "Blue_1")!
+            backButton.strokeColor = SKColor(named: "Blue_1")!
+            backButton.lineWidth = 2
             addChild(backButton)
         }
     }
