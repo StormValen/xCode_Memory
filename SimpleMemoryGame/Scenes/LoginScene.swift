@@ -42,6 +42,8 @@ class LoginScene: SKScene, NewGameDelegate {
     private var mediumHighscore: String = " - "
     private var hardHighscore: String = " - "
     
+    private var optionsButton: IconButton?
+    
     
     public var totalGamePlayed: [String] = [" NO DATA ", " NO DATA ", " NO DATA ", " NO HIGHSCORES "]
     // private var loginButton = AppButton(
@@ -111,9 +113,14 @@ class LoginScene: SKScene, NewGameDelegate {
             globalHighScoreName.isUserInteractionEnabled = false
         }
         
+        self.optionsButton = IconButton(rect: CGRect(x: 0, y: 0, width: 50, height: 50), cornerRadius: 25)
+        if let optionsButton = self.optionsButton {
+            self.optionsButton?.setIcon(iconName: "options")
+            addChild(optionsButton)
+        }
         
         
-        print("<DB> Reading total games played")
+        // LOADING DATA FROM FIREBASE
         FirestoreService().getGameStats() { (data) in
             self.totalGamePlayed = data
             
