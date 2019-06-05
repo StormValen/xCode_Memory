@@ -11,11 +11,14 @@ import GameplayKit
 
 
 protocol LoginDelegate: class {
+    
     func goToGameScene(sender: LoginScene, gameMode: GameMode)
+    
+    func goToSettingsScene(sender: LoginScene)
 }
 
-class LoginScene: SKScene, NewGameDelegate {
-    weak var loginDelegate: LoginDelegate?
+class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
+    weak var LOGIN_DELEGATE: LoginDelegate?
     
     // private var emailFieldFrame : CGRect!
     // private var passFieldFrame : CGRect!
@@ -31,6 +34,7 @@ class LoginScene: SKScene, NewGameDelegate {
     // Elements Declaration
     private var bottomBar : BottomBar?
     private var title : SKLabelNode?
+    private var welcome : SKLabelNode?
     private var globalRanking : SKLabelNode?
     private var easyRankingName : SKLabelNode?
     private var mediumRankingName : SKLabelNode?
@@ -38,11 +42,18 @@ class LoginScene: SKScene, NewGameDelegate {
     private var globalHighScoreName : SKLabelNode?
     private var globalHighscoreValue: SKLabelNode?
     
+    private var backgroundImage : SKSpriteNode?
+    
     private var easyHighscore: String = " - "
     private var mediumHighscore: String = " - "
     private var hardHighscore: String = " - "
     
     private var optionsButton: IconButton?
+    
+    private var settingsButton : AppButton?
+    private var settingsImage : SKSpriteNode?
+    private var settingsIcon : SKSpriteNode?
+    private var settingsBar : SKShapeNode?
     
     
     public var totalGamePlayed: [String] = [" NO DATA ", " NO DATA ", " NO DATA ", " NO HIGHSCORES "]
@@ -56,6 +67,10 @@ class LoginScene: SKScene, NewGameDelegate {
     // Variables
     let BOTTOM_BAR_HEIGHT_PERCENTAGE: CGFloat = 0.7
     let BOTTOM_BAR_CORNERS : UIRectCorner = [UIRectCorner.bottomLeft,UIRectCorner.bottomRight]
+    
+    
+    // Constants
+    let FONT_NAME : String = "Nunito"
     
     override func didMove(to view: SKView) {
         
@@ -80,16 +95,132 @@ class LoginScene: SKScene, NewGameDelegate {
         // FirestoreService().updateUserScore(score: 13, username: "p1xelP3rfect", userId: "D908DF3D-602D-496F-BB10-402212A21F97")
         // FirestoreService().readUserScore()
         
+        // super.init(texture: nil, color: .white, size: size)
+        // self.texture = texturePathFront
+        
+        self.backgroundImage = SKSpriteNode(
+            texture: SKTexture(imageNamed: "Background"),
+            color: .white,
+            size: CGSize(width: view.frame.width, height: view.frame.height))
+        
+        if let backgroundImage = backgroundImage {
+            
+            backgroundImage.position = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
+            
+            backgroundImage.isUserInteractionEnabled = false
+            
+            addChild(backgroundImage)
+            
+        }
+        
+        
+        self.settingsImage = SKSpriteNode(
+            texture: SKTexture(imageNamed: "Settings"),
+            color: .white,
+            size: CGSize(width: 50, height: 50))
+        
+        if let settingsImage = settingsImage {
+            
+            settingsImage.position = CGPoint(x: view.frame.width - 30, y: (view.frame.height - view.frame.height * 0.15) + 20)
+            
+            settingsImage.isUserInteractionEnabled = false
+            
+            addChild(settingsImage)
+            
+        }
+
+        
+        self.settingsButton = AppButton(rect: CGRect(x: 0, y: 0, width: 40, height: 40), cornerRadius: 20)
+        
+        if let settingsButton = settingsButton {
+            
+            settingsButton.setText(text: "")
+            
+            settingsButton.fillColor = SKColor(named: "AppBlue")!
+            settingsButton.highlightColor = SKColor(named: "AppBlueHover")!
+            settingsButton.strokeColor = .clear
+            
+            settingsButton.position = CGPoint(x: view.frame.width - 50, y: view.frame.height - view.frame.height * 0.15)
+            settingsButton.lineWidth = 2
+            
+            settingsButton.isUserInteractionEnabled = true
+            
+            settingsButton.delegate = self
+            
+            addChild(settingsButton)
+        }
+        
+        
+        self.settingsIcon = SKSpriteNode(
+            texture: SKTexture(imageNamed: "icon-options"),
+            color: .white,
+            size: CGSize(width: 20, height: 20))
+        
+        if let settingsIcon = settingsIcon {
+            
+            settingsIcon.position = CGPoint(x: view.frame.width - 30, y: (view.frame.height - view.frame.height * 0.15) + 20)
+            
+            settingsIcon.isUserInteractionEnabled = false
+            
+            addChild(settingsIcon)
+            
+        }
+        
+        
+        settingsBar = SKShapeNode(
+            rect: CGRect(
+                x: frame.width - 10,
+                y: 0,
+                width: 20,
+                height: self.frame.height))
+        
+        if let settingsBar = settingsBar {
+            
+            settingsBar.fillColor = .white
+            settingsBar.strokeColor = .clear
+            
+            settingsBar.isUserInteractionEnabled = false
+            
+            addChild(settingsBar)
+            
+        }
+        
+        
         
         self.title = SKLabelNode(text: "</CODE LABS>")
+        
         if let title = self.title {
-            addChild(title)
-            title.fontColor = SKColor(named: "Blue_1")!
-            title.position = CGPoint(x: view.center.x, y: view.frame.height - view.frame.height * 0.15)
-            title.fontName = "Futura"
-            title.run(SKAction.fadeIn(withDuration: 2.0))
+            
+            title.fontColor = .black
+            title.fontName = FONT_NAME
+            title.fontSize = 30
+            
+            title.position = CGPoint(x: 25, y: view.frame.height - view.frame.height * 0.15)
+            title.horizontalAlignmentMode = .left
+            
             title.isUserInteractionEnabled = false
+            
+            addChild(title)
         }
+        
+        
+        self.welcome = SKLabelNode(text: "WELCOME!")
+        
+        if let welcome = self.welcome {
+            
+            welcome.fontColor = SKColor(named: "AppBlue")!
+            welcome.fontName = FONT_NAME
+            welcome.fontSize = 25
+            
+            welcome.position = CGPoint(x: 25, y: (view.frame.height - view.frame.height * 0.15) - 40)
+            welcome.horizontalAlignmentMode = .left
+            
+            welcome.isUserInteractionEnabled = false
+            
+            addChild(welcome)
+        }
+        
+        
         
         self.globalRanking = SKLabelNode(text: "Total games played")
         if let globalRanking = self.globalRanking {
@@ -111,12 +242,6 @@ class LoginScene: SKScene, NewGameDelegate {
             globalHighScoreName.fontSize = 25
             globalHighScoreName.fontName = "Futura"
             globalHighScoreName.isUserInteractionEnabled = false
-        }
-        
-        self.optionsButton = IconButton(rect: CGRect(x: 0, y: 0, width: 50, height: 50), cornerRadius: 25)
-        if let optionsButton = self.optionsButton {
-            self.optionsButton?.setIcon(iconName: "options")
-            addChild(optionsButton)
         }
         
         
@@ -221,7 +346,16 @@ class LoginScene: SKScene, NewGameDelegate {
     func startGame(sender: PlayButton, gameMode: GameMode) {
         // FirestoreService().signIn(email: "valentin.g.l@gmail.com", password: "1234aA")
         FirestoreService().addGamePlayed(gameStats: totalGamePlayed, gameMode: gameMode)
-        loginDelegate?.goToGameScene(sender: self, gameMode: gameMode)
+        LOGIN_DELEGATE?.goToGameScene(sender: self, gameMode: gameMode)
     }
+    
+    
+    func onTap(sender: AppButton) {
+        
+        LOGIN_DELEGATE?.goToSettingsScene(sender: self)
+        
+    }
+    
+    
 }
 

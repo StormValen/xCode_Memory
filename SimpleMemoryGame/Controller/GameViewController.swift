@@ -90,7 +90,7 @@ class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate, Se
     func goToMenuScene(sender: GameScene) {
         if let view = self.view as? SKView {
             let scene = LoginScene(size: view.frame.size)
-            scene.loginDelegate = self
+            scene.LOGIN_DELEGATE = self
             scene.scaleMode = .aspectFill
             scene.backgroundColor = SKColor(named: "Blue_2")!
             view.presentScene(scene, transition: .crossFade(withDuration: 0.2))
@@ -102,10 +102,24 @@ class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate, Se
         
         if let view = self.view as? SKView {
             let scene = LoginScene(size: view.frame.size)
-            scene.loginDelegate = self
+            scene.LOGIN_DELEGATE = self
+            scene.scaleMode = .aspectFill
+            // scene.backgroundColor = SKColor(named: "Blue_2")!
+            
+            view.presentScene(scene, transition: .push(with: SKTransitionDirection.right, duration: 0.5))
+        }
+        
+    }
+    
+    
+    func goToSettingsScene(sender: LoginScene) {
+        
+        if let view = self.view as? SKView {
+            let scene = SettingsScene(size: view.frame.size)
+            scene.SETTINGS_DELEGATE = self
             scene.scaleMode = .aspectFill
             scene.backgroundColor = SKColor(named: "Blue_2")!
-            view.presentScene(scene, transition: .crossFade(withDuration: 0.2))
+            view.presentScene(scene, transition: .push(with: SKTransitionDirection.left, duration: 0.5))
         }
         
     }
