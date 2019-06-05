@@ -16,7 +16,7 @@ import GoogleMobileAds
 
 import CoreLocation
 
-class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate {
+class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate, SettingsDelegate {
     
     let locationManager = CLLocationManager()
     
@@ -31,8 +31,8 @@ class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate {
             // Load the SKScene from 'GameScene.sks'
             if let view = self.view as? SKView {
                 // Set the scale mode to scale to fit the window
-                let scene = LoginScene(size: view.frame.size)
-                scene.loginDelegate = self
+                let scene = SettingsScene(size: view.frame.size)
+                scene.SETTINGS_DELEGATE = self
                 scene.scaleMode = .aspectFill
                 scene.backgroundColor = SKColor(named: "Blue_2")!
                 // Present the scene
@@ -96,6 +96,21 @@ class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate {
             view.presentScene(scene, transition: .crossFade(withDuration: 0.2))
         }
     }
+    
+    
+    func goToMenuScene(sender: SettingsScene) {
+        
+        if let view = self.view as? SKView {
+            let scene = LoginScene(size: view.frame.size)
+            scene.loginDelegate = self
+            scene.scaleMode = .aspectFill
+            scene.backgroundColor = SKColor(named: "Blue_2")!
+            view.presentScene(scene, transition: .crossFade(withDuration: 0.2))
+        }
+        
+    }
+    
+    
     
     func initLocation() {
         locationManager.delegate = self

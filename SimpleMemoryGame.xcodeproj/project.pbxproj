@@ -12,6 +12,7 @@
 		7404DC2D228C9B6C0076B97D /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404DC2C228C9B6C0076B97D /* GameLogic.swift */; };
 		74146BF82297EE5200B8BAB8 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74146BF72297EE5200B8BAB8 /* IconButton.swift */; };
 		744EEDA32272557800D9C8B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */; };
+		7459C20A22A6F37C0061D77E /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7459C20922A6F37C0061D77E /* SettingsScene.swift */; };
 		746AC6CE2271E18C00A7B843 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746AC6CD2271E18C00A7B843 /* FirestoreService.swift */; };
 		74970B3A228DDB71002C9850 /* Correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74970B38228DDB71002C9850 /* Correct.wav */; };
 		74970B3B228DDB71002C9850 /* Incorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 74970B39228DDB71002C9850 /* Incorrect.wav */; };
@@ -38,6 +39,7 @@
 		7404DC2C228C9B6C0076B97D /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		74146BF72297EE5200B8BAB8 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7459C20922A6F37C0061D77E /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 		746AC6CD2271E18C00A7B843 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		74970B38228DDB71002C9850 /* Correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Correct.wav; sourceTree = "<group>"; };
 		74970B39228DDB71002C9850 /* Incorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Incorrect.wav; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				74ACE55E2271022900A6C89A /* LoginScene.swift */,
 				74ACE54C2271005300A6C89A /* GameScene.swift */,
+				7459C20922A6F37C0061D77E /* SettingsScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74ACE55F2271022900A6C89A /* LoginScene.swift in Sources */,
+				7459C20A22A6F37C0061D77E /* SettingsScene.swift in Sources */,
 				7404DC2D228C9B6C0076B97D /* GameLogic.swift in Sources */,
 				74A5A968227C6AFA00081EDB /* CardSprite.swift in Sources */,
 				746AC6CE2271E18C00A7B843 /* FirestoreService.swift in Sources */,
