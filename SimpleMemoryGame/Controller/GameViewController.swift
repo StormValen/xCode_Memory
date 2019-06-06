@@ -40,7 +40,7 @@ class GameViewController: UIViewController, LoginDelegate, GameSceneDelegate, Se
             }
             
             // view.ignoresSiblingOrder = true
-            
+            AudioController.shared.play()
             view.showsFPS = false
             view.showsNodeCount = false
         }

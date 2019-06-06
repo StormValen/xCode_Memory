@@ -10,8 +10,8 @@ import Foundation
 import AVFoundation
 
 class AudioController {
-    // let player = AVPlayer(url: Bundle.main.url(forResource: "MainTheme.mp3", withExtension: nil)!)
-    let player = AVPlayer()
+    let player = AVPlayer(url: Bundle.main.url(forResource: "MenúPrincipa.mp3", withExtension: nil)!)
+    // let player = AVPlayer()
     private static let sharedAudioController = AudioController()
     public var volumeOn = true
     

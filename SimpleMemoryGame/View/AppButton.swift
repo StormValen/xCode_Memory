@@ -9,7 +9,9 @@
 import SpriteKit
 
 protocol ButtonDelegate: class {
+    
     func onTap(sender: AppButton)
+    
 }
 
 class AppButton: SKShapeNode {

@@ -30,7 +30,9 @@ class SettingsScene: SKScene, ButtonDelegate {
     private var sceneTitle : SKLabelNode?
     
     private var configSoundText : SKLabelNode?
+    private var configSoundTextValue : AppButton?
     private var configGeolocalizationText : SKLabelNode?
+    private var configGeolocalizationTextValue : AppButton?
     
     private var devNameHelper : SKLabelNode?
     private var devName : SKLabelNode?
@@ -95,20 +97,37 @@ class SettingsScene: SKScene, ButtonDelegate {
             addChild(configSoundText)
         }
         
-        self.configGeolocalizationText = SKLabelNode(text: "Geolocalization")
         
-        if let configGeolocalizationText = self.configGeolocalizationText {
+        self.configSoundTextValue = AppButton(rect: CGRect(x: 0, y: 0, width: 20, height: 20), cornerRadius: 10)
+        
+        if let configSoundTextValue = configSoundTextValue {
             
-            configGeolocalizationText.fontColor = .black
-            configGeolocalizationText.fontName = FONT_NAME
-            configGeolocalizationText.fontSize = 20
+            configSoundTextValue.setText(text: "")
             
-            configGeolocalizationText.position = CGPoint(x: 25, y: (view.frame.height - view.frame.height * 0.25) - 80)
-            configGeolocalizationText.horizontalAlignmentMode = .left
             
-            configGeolocalizationText.isUserInteractionEnabled = false
+            if (AudioController.shared.volumeOn) {
+                
+                configSoundTextValue.fillColor = SKColor(named: "AppBlue")!
+                configSoundTextValue.highlightColor = .white
+                configSoundTextValue.strokeColor = SKColor(named: "AppBlue")!
+                
+            } else if (!AudioController.shared.volumeOn) {
+                
+                configSoundTextValue.fillColor = .white
+                configSoundTextValue.highlightColor = SKColor(named: "AppBlue")!
+                configSoundTextValue.strokeColor = SKColor(named: "AppBlue")!
+                
+            }
             
-            addChild(configGeolocalizationText)
+            
+            configSoundTextValue.position = CGPoint(x: view.frame.width - 45, y: (view.frame.height - view.frame.height * 0.25) - 45)
+            configSoundTextValue.lineWidth = 2
+            
+            configSoundTextValue.isUserInteractionEnabled = true
+            
+            configSoundTextValue.delegate = self
+            
+            addChild(configSoundTextValue)
         }
         
         
@@ -149,7 +168,32 @@ class SettingsScene: SKScene, ButtonDelegate {
     
     func onTap(sender: AppButton) {
         
-        SETTINGS_DELEGATE?.goToMenuScene(sender: self)
+        if (sender === self.configSoundTextValue) {
+            
+            if (AudioController.shared.volumeOn) {
+                
+                self.configSoundTextValue?.fillColor = .white
+                self.configSoundTextValue?.strokeColor = SKColor(named: "AppBlue")!
+                
+                AudioController.shared.off()
+                
+            } else if (!AudioController.shared.volumeOn) {
+                
+                self.configSoundTextValue?.fillColor = SKColor(named: "AppBlue")!
+                self.configSoundTextValue?.strokeColor = SKColor(named: "AppBlue")!
+                
+                AudioController.shared.on()
+                
+            }
+            
+        }
+        
+        if (sender === self.backButton) {
+            
+                SETTINGS_DELEGATE?.goToMenuScene(sender: self)
+            
+        }
+        
         
     }
     

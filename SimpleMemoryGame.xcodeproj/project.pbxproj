@@ -29,6 +29,7 @@
 		74ACE55F2271022900A6C89A /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE55E2271022900A6C89A /* LoginScene.swift */; };
 		74ACE561227110B100A6C89A /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE560227110B100A6C89A /* AppButton.swift */; };
 		74ADE9EA228DD7D700BC0ACD /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADE9E9228DD7D700BC0ACD /* AudioController.swift */; };
+		74C30FAC22A99F6E00FBFF12 /* MenúPrincipa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 74C30FAB22A99F6D00FBFF12 /* MenúPrincipa.mp3 */; };
 		74DBBD77227B8CDC005CDA4E /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DBBD76227B8CDC005CDA4E /* BottomBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		74ACE55E2271022900A6C89A /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		74ACE560227110B100A6C89A /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		74ADE9E9228DD7D700BC0ACD /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		74C30FAB22A99F6D00FBFF12 /* MenúPrincipa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "MenúPrincipa.mp3"; sourceTree = "<group>"; };
 		74DBBD76227B8CDC005CDA4E /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		74FA087A2284576500B04EB7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		74FA087B2284576600B04EB7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		74970B37228DDB71002C9850 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				74C30FAB22A99F6D00FBFF12 /* MenúPrincipa.mp3 */,
 				74970B38228DDB71002C9850 /* Correct.wav */,
 				74970B39228DDB71002C9850 /* Incorrect.wav */,
 			);
@@ -258,6 +261,7 @@
 				74ACE54B2271005300A6C89A /* Actions.sks in Resources */,
 				744EEDA32272557800D9C8B5 /* GoogleService-Info.plist in Resources */,
 				74970B3A228DDB71002C9850 /* Correct.wav in Resources */,
+				74C30FAC22A99F6E00FBFF12 /* MenúPrincipa.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

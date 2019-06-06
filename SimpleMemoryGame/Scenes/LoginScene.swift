@@ -18,6 +18,7 @@ protocol LoginDelegate: class {
 }
 
 class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
+    
     weak var LOGIN_DELEGATE: LoginDelegate?
     
     // private var emailFieldFrame : CGRect!
@@ -46,6 +47,23 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
     private var settingsBar : SKShapeNode?
     
     private var gameSelectBar : SKShapeNode?
+    
+    private var easyModeName : SKLabelNode?
+    private var easyModeDesc : SKLabelNode?
+    private var easyModeNum : SKLabelNode?
+    private var easyPlayButton: AppButton?
+    
+    private var mediumModeName : SKLabelNode?
+    private var mediumModeDesc : SKLabelNode?
+    private var mediumModeNum : SKLabelNode?
+    private var mediumPlayButton: AppButton?
+    
+    private var hardModeName : SKLabelNode?
+    private var hardModeDesc : SKLabelNode?
+    private var hardModeNum : SKLabelNode?
+    private var hardPlayButton: AppButton?
+    
+    
     
     private var globalHighScoreBar : SKShapeNode?
     private var globalHighScoreName : SKLabelNode?
@@ -199,7 +217,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.title = SKLabelNode(text: "</CODE LABS>")
+        self.title = SKLabelNode(text: "!CODE LAB")
         
         if let title = self.title {
             
@@ -238,7 +256,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
                 x: 25,
                 y: (view.frame.height - view.frame.height * 0.8) + 60,
                 width: self.frame.width - 50,
-                height: 300), cornerRadius: 20)
+                height: 280), cornerRadius: 20)
         
         if let gameSelectBar = gameSelectBar {
             
@@ -252,15 +270,174 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.globalRanking = SKLabelNode(text: "Total games played")
-        if let globalRanking = self.globalRanking {
-            addChild(globalRanking)
-            globalRanking.fontColor = SKColor(named: "Blue_1")!
-            globalRanking.position = CGPoint(x: view.center.x, y: view.frame.height - view.frame.height * 0.3)
-            globalRanking.run(SKAction.fadeIn(withDuration: 2.0))
-            globalRanking.fontSize = 25
-            globalRanking.fontName = "Futura"
-            globalRanking.isUserInteractionEnabled = false
+        self.easyModeName = SKLabelNode(text: "EASY MODE")
+        
+        if let easyModeName = self.easyModeName {
+            
+            easyModeName.fontColor = .black
+            easyModeName.fontSize = 20
+            easyModeName.fontName = FONT_NAME
+            
+            easyModeName.position = CGPoint(x: 50, y: (view.frame.height - view.frame.height * 0.8) + 290)
+            easyModeName.horizontalAlignmentMode = .left
+            
+            
+            easyModeName.isUserInteractionEnabled = false
+            
+            addChild(easyModeName)
+        }
+        
+        
+        self.easyModeDesc = SKLabelNode(text: "3 X 4 Game grid")
+        
+        if let easyModeDesc = self.easyModeDesc {
+            
+            easyModeDesc.fontColor = .gray
+            easyModeDesc.fontSize = 15
+            easyModeDesc.fontName = FONT_NAME
+            
+            easyModeDesc.position = CGPoint(x: 50, y: (view.frame.height - view.frame.height * 0.8) + 270)
+            easyModeDesc.horizontalAlignmentMode = .left
+            
+            
+            easyModeDesc.isUserInteractionEnabled = false
+            
+            addChild(easyModeDesc)
+        }
+        
+        
+        self.easyPlayButton = AppButton(rect: CGRect(x: 0, y: 0, width: 90, height: 30), cornerRadius: 15)
+        
+        if let easyPlayButton = easyPlayButton {
+            
+            easyPlayButton.setText(text: "PLAY")
+            
+            easyPlayButton.fillColor = SKColor(named: "AppBlue")!
+            easyPlayButton.highlightColor = SKColor(named: "AppBlueHover")!
+            easyPlayButton.strokeColor = .clear
+            
+            easyPlayButton.position = CGPoint(x: view.frame.width - 130, y: (view.frame.height - view.frame.height * 0.8) + 280)
+            easyPlayButton.lineWidth = 2
+            
+            easyPlayButton.isUserInteractionEnabled = true
+            
+            easyPlayButton.delegate = self
+            
+            addChild(easyPlayButton)
+        }
+        
+        
+        self.mediumModeName = SKLabelNode(text: "MEDIUM MODE")
+        
+        if let mediumModeName = self.mediumModeName {
+            
+            mediumModeName.fontColor = .black
+            mediumModeName.fontSize = 20
+            mediumModeName.fontName = FONT_NAME
+            
+            mediumModeName.position = CGPoint(x: 50, y: (view.frame.height - view.frame.height * 0.8) + 200)
+            mediumModeName.horizontalAlignmentMode = .left
+            
+            
+            mediumModeName.isUserInteractionEnabled = false
+            
+            addChild(mediumModeName)
+        }
+        
+        
+        self.mediumModeDesc = SKLabelNode(text: "4 X 5 Game grid")
+        
+        if let mediumModeDesc = self.mediumModeDesc {
+            
+            mediumModeDesc.fontColor = .gray
+            mediumModeDesc.fontSize = 15
+            mediumModeDesc.fontName = FONT_NAME
+            
+            mediumModeDesc.position = CGPoint(x: 50, y: (view.frame.height - view.frame.height * 0.8) + 180)
+            mediumModeDesc.horizontalAlignmentMode = .left
+            
+            
+            mediumModeDesc.isUserInteractionEnabled = false
+            
+            addChild(mediumModeDesc)
+        }
+        
+        
+        self.mediumPlayButton = AppButton(rect: CGRect(x: 0, y: 0, width: 90, height: 30), cornerRadius: 15)
+        
+        if let mediumPlayButton = mediumPlayButton {
+            
+            mediumPlayButton.setText(text: "PLAY")
+            
+            mediumPlayButton.fillColor = SKColor(named: "AppBlue")!
+            mediumPlayButton.highlightColor = SKColor(named: "AppBlueHover")!
+            mediumPlayButton.strokeColor = .clear
+            
+            mediumPlayButton.position = CGPoint(x: view.frame.width - 130, y: (view.frame.height - view.frame.height * 0.8) + 190)
+            mediumPlayButton.lineWidth = 2
+            
+            mediumPlayButton.isUserInteractionEnabled = true
+            
+            mediumPlayButton.delegate = self
+            
+            addChild(mediumPlayButton)
+        }
+        
+        
+        self.hardModeName = SKLabelNode(text: "HARD MODE")
+        
+        if let hardModeName = self.hardModeName {
+            
+            hardModeName.fontColor = .black
+            hardModeName.fontSize = 20
+            hardModeName.fontName = FONT_NAME
+            
+            hardModeName.position = CGPoint(x: 50, y: (view.frame.height - view.frame.height * 0.8) + 110)
+            hardModeName.horizontalAlignmentMode = .left
+            
+            
+            hardModeName.isUserInteractionEnabled = false
+            
+            addChild(hardModeName)
+        }
+        
+        
+        self.hardModeDesc = SKLabelNode(text: "5 X 6 Game grid")
+        
+        if let hardModeDesc = self.hardModeDesc {
+            
+            hardModeDesc.fontColor = .gray
+            hardModeDesc.fontSize = 15
+            hardModeDesc.fontName = FONT_NAME
+            
+            hardModeDesc.position = CGPoint(x: 50, y: (view.frame.height - view.frame.height * 0.8) + 90)
+            hardModeDesc.horizontalAlignmentMode = .left
+            
+            
+            hardModeDesc.isUserInteractionEnabled = false
+            
+            addChild(hardModeDesc)
+        }
+        
+        
+        self.hardPlayButton = AppButton(rect: CGRect(x: 0, y: 0, width: 90, height: 30), cornerRadius: 15)
+        
+        if let hardPlayButton = hardPlayButton {
+            
+            hardPlayButton.setText(text: "PLAY")
+            
+            hardPlayButton.fillColor = SKColor(named: "AppBlue")!
+            hardPlayButton.highlightColor = SKColor(named: "AppBlueHover")!
+            hardPlayButton.strokeColor = .clear
+            
+            hardPlayButton.position = CGPoint(x: view.frame.width - 130, y: (view.frame.height - view.frame.height * 0.8) + 100)
+            hardPlayButton.lineWidth = 2
+            
+            hardPlayButton.isUserInteractionEnabled = true
+            
+            hardPlayButton.delegate = self
+            
+            addChild(hardPlayButton)
         }
         
         
@@ -288,7 +465,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         if let globalHighScoreName = self.globalHighScoreName {
             
             globalHighScoreName.fontColor = .black
-            globalHighScoreName.fontSize = 25
+            globalHighScoreName.fontSize = 20
             globalHighScoreName.fontName = FONT_NAME
             
             globalHighScoreName.position = CGPoint(x: 50, y: view.frame.height - view.frame.height * 0.8)
@@ -308,7 +485,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
             let easyScore = "{ EASY } - { " + self.totalGamePlayed[0] + " games }"
             self.easyRankingName = SKLabelNode(text: easyScore)
             if let easyRankingName = self.easyRankingName {
-                self.addChild(easyRankingName)
+                // self.addChild(easyRankingName)
                 easyRankingName.fontColor = SKColor(named: "Blue_1")!
                 easyRankingName.position = CGPoint(x: view.center.x, y: view.frame.height - view.frame.height * 0.35)
                 easyRankingName.run(SKAction.fadeIn(withDuration: 2.0))
@@ -320,7 +497,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
             let mediumScore = "{ MEDIUM } - { " + self.totalGamePlayed[1]  + " games }"
             self.mediumRankingName = SKLabelNode(text: mediumScore)
             if let mediumRankingName = self.mediumRankingName {
-                self.addChild(mediumRankingName)
+                // self.addChild(mediumRankingName)
                 mediumRankingName.fontColor = SKColor(named: "Blue_1")!
                 mediumRankingName.position = CGPoint(x: view.center.x, y: view.frame.height - view.frame.height * 0.40)
                 mediumRankingName.run(SKAction.fadeIn(withDuration: 2.0))
@@ -332,7 +509,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
             let hardScore = "{ HARD } - { " + self.totalGamePlayed[2]  + " games }"
             self.hardRankingName = SKLabelNode(text: hardScore)
             if let hardRankingName = self.hardRankingName {
-                self.addChild(hardRankingName)
+                // self.addChild(hardRankingName)
                 hardRankingName.fontColor = SKColor(named: "Blue_1")!
                 hardRankingName.position = CGPoint(x: view.center.x, y: view.frame.height - view.frame.height * 0.45)
                 hardRankingName.run(SKAction.fadeIn(withDuration: 2.0))
@@ -374,7 +551,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
                 bottomBar.position = CGPoint(x: 0, y: -320)
                 bottomBar.strokeColor = .clear
                 bottomBar.delegate = self
-                self.addChild(bottomBar)
+                // self.addChild(bottomBar)
             }
         }
         
@@ -419,7 +596,22 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
     
     func onTap(sender: AppButton) {
         
-        LOGIN_DELEGATE?.goToSettingsScene(sender: self)
+        if (sender === self.easyPlayButton) {
+            FirestoreService().addGamePlayed(gameStats: totalGamePlayed, gameMode: GameMode.EASY)
+            LOGIN_DELEGATE?.goToGameScene(sender: self, gameMode: GameMode.EASY)
+        }
+        if (sender === self.mediumPlayButton) {
+            FirestoreService().addGamePlayed(gameStats: totalGamePlayed, gameMode: GameMode.MEDIUM)
+            LOGIN_DELEGATE?.goToGameScene(sender: self, gameMode: GameMode.MEDIUM)
+        }
+        if (sender === self.hardPlayButton) {
+            FirestoreService().addGamePlayed(gameStats: totalGamePlayed, gameMode: GameMode.HARD)
+            LOGIN_DELEGATE?.goToGameScene(sender: self, gameMode: GameMode.HARD)
+        }
+        if (sender === self.settingsButton) {
+            LOGIN_DELEGATE?.goToSettingsScene(sender: self)
+        }
+        
         
     }
     
