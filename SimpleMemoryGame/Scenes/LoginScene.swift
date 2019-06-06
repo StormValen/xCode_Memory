@@ -33,27 +33,40 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
 
     // Elements Declaration
     private var bottomBar : BottomBar?
+    
+    
+    private var backgroundImage : SKSpriteNode?
+    
     private var title : SKLabelNode?
     private var welcome : SKLabelNode?
+    
+    private var settingsButton : AppButton?
+    private var settingsImage : SKSpriteNode?
+    private var settingsIcon : SKSpriteNode?
+    private var settingsBar : SKShapeNode?
+    
+    private var gameSelectBar : SKShapeNode?
+    
+    private var globalHighScoreBar : SKShapeNode?
+    private var globalHighScoreName : SKLabelNode?
+    private var globalHighscoreValue: SKLabelNode?
+    
+    
+    
+    
+    
+    
     private var globalRanking : SKLabelNode?
     private var easyRankingName : SKLabelNode?
     private var mediumRankingName : SKLabelNode?
     private var hardRankingName : SKLabelNode?
-    private var globalHighScoreName : SKLabelNode?
-    private var globalHighscoreValue: SKLabelNode?
-    
-    private var backgroundImage : SKSpriteNode?
-    
     private var easyHighscore: String = " - "
     private var mediumHighscore: String = " - "
     private var hardHighscore: String = " - "
     
     private var optionsButton: IconButton?
     
-    private var settingsButton : AppButton?
-    private var settingsImage : SKSpriteNode?
-    private var settingsIcon : SKSpriteNode?
-    private var settingsBar : SKShapeNode?
+    
     
     
     public var totalGamePlayed: [String] = [" NO DATA ", " NO DATA ", " NO DATA ", " NO HIGHSCORES "]
@@ -186,7 +199,6 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        
         self.title = SKLabelNode(text: "</CODE LABS>")
         
         if let title = self.title {
@@ -221,6 +233,24 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
+        gameSelectBar = SKShapeNode(
+            rect: CGRect(
+                x: 25,
+                y: (view.frame.height - view.frame.height * 0.8) + 60,
+                width: self.frame.width - 50,
+                height: 300), cornerRadius: 20)
+        
+        if let gameSelectBar = gameSelectBar {
+            
+            gameSelectBar.fillColor = .white
+            gameSelectBar.strokeColor = .clear
+            
+            gameSelectBar.isUserInteractionEnabled = false
+            
+            addChild(gameSelectBar)
+            
+        }
+        
         
         self.globalRanking = SKLabelNode(text: "Total games played")
         if let globalRanking = self.globalRanking {
@@ -233,15 +263,41 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
             globalRanking.isUserInteractionEnabled = false
         }
         
-        self.globalHighScoreName = SKLabelNode(text: "Global Highscore")
+        
+        globalHighScoreBar = SKShapeNode(
+            rect: CGRect(
+                x: 25,
+                y: (view.frame.height - view.frame.height * 0.8) - 23,
+                width: self.frame.width - 50,
+                height: 65), cornerRadius: 20)
+        
+        if let globalHighScoreBar = globalHighScoreBar {
+            
+            globalHighScoreBar.fillColor = .white
+            globalHighScoreBar.strokeColor = .clear
+            
+            globalHighScoreBar.isUserInteractionEnabled = false
+            
+            addChild(globalHighScoreBar)
+            
+        }
+        
+        
+        self.globalHighScoreName = SKLabelNode(text: "HIGHSCORE")
+        
         if let globalHighScoreName = self.globalHighScoreName {
-            addChild(globalHighScoreName)
-            globalHighScoreName.fontColor = SKColor(named: "Blue_1")!
-            globalHighScoreName.position = CGPoint(x: view.center.x, y: view.frame.height - view.frame.height * 0.6)
-            globalHighScoreName.run(SKAction.fadeIn(withDuration: 2.0))
+            
+            globalHighScoreName.fontColor = .black
             globalHighScoreName.fontSize = 25
-            globalHighScoreName.fontName = "Futura"
+            globalHighScoreName.fontName = FONT_NAME
+            
+            globalHighScoreName.position = CGPoint(x: 50, y: view.frame.height - view.frame.height * 0.8)
+            globalHighScoreName.horizontalAlignmentMode = .left
+
+            
             globalHighScoreName.isUserInteractionEnabled = false
+            
+            addChild(globalHighScoreName)
         }
         
         
@@ -285,17 +341,28 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
                 hardRankingName.isUserInteractionEnabled = false
             }
             
-            let globalHighscoreText = "{ SCORE } - { " + self.totalGamePlayed[3] + " points }"
+            
+            
+            let globalHighscoreText = self.totalGamePlayed[3]
+            
             self.globalHighscoreValue = SKLabelNode(text: globalHighscoreText)
+            
             if let globalHighscoreValue = self.globalHighscoreValue {
-                self.addChild(globalHighscoreValue)
-                globalHighscoreValue.fontColor = SKColor(named: "Blue_1")!
-                globalHighscoreValue.position = CGPoint(x: view.center.x, y: view.frame.height - view.frame.height * 0.65)
-                globalHighscoreValue.run(SKAction.fadeIn(withDuration: 2.0))
-                globalHighscoreValue.fontSize = 15
+                
+                
+                globalHighscoreValue.fontColor = SKColor(named: "AppBlue")!
+                globalHighscoreValue.fontSize = 20
                 globalHighscoreValue.fontName = "Futura"
+                
+                globalHighscoreValue.position = CGPoint(x: view.frame.width - 50, y: view.frame.height - view.frame.height * 0.8)
+                globalHighscoreValue.horizontalAlignmentMode = .right
+                
                 globalHighscoreValue.isUserInteractionEnabled = false
+                
+                self.addChild(globalHighscoreValue)
             }
+            
+            
             
             self.bottomBar = BottomBar(rect: CGRect(x: 0, y: 0, width: view.frame.width, height: 400))
             if let bottomBar = self.bottomBar {
