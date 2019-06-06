@@ -47,7 +47,7 @@ class SettingsScene: SKScene, ButtonDelegate {
         
         if let backButton = backButton {
             
-            backButton.setText(text: "BACK")
+            backButton.setText(text: NSLocalizedString("BACK", comment:""))
             
             backButton.fillColor = SKColor(named: "AppBlue")!
             backButton.highlightColor = SKColor(named: "AppBlueHover")!
@@ -64,7 +64,7 @@ class SettingsScene: SKScene, ButtonDelegate {
         }
         
         
-        self.sceneTitle = SKLabelNode(text: "SETTINGS")
+        self.sceneTitle = SKLabelNode(text: NSLocalizedString("SETTINGS", comment:""))
         
         if let sceneTitle = self.sceneTitle {
             
@@ -81,7 +81,7 @@ class SettingsScene: SKScene, ButtonDelegate {
         }
         
         
-        self.configSoundText = SKLabelNode(text: "Sounds")
+        self.configSoundText = SKLabelNode(text: NSLocalizedString("SOUNDS", comment:""))
         
         if let configSoundText = self.configSoundText {
             
@@ -131,7 +131,7 @@ class SettingsScene: SKScene, ButtonDelegate {
         }
         
         
-        self.devNameHelper = SKLabelNode(text: "A game by:")
+        self.devNameHelper = SKLabelNode(text: NSLocalizedString("A_GAME_BY", comment:""))
         
         if let devNameHelper = self.devNameHelper {
             
@@ -147,7 +147,7 @@ class SettingsScene: SKScene, ButtonDelegate {
         }
         
         
-        self.devName = SKLabelNode(text: "VALENTIN GUTIERREZ")
+        self.devName = SKLabelNode(text: NSLocalizedString("DEV_NAME", comment:""))
         
         if let devName = self.devName {
             

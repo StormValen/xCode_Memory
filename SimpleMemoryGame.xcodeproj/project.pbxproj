@@ -30,6 +30,7 @@
 		74ACE561227110B100A6C89A /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ACE560227110B100A6C89A /* AppButton.swift */; };
 		74ADE9EA228DD7D700BC0ACD /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74ADE9E9228DD7D700BC0ACD /* AudioController.swift */; };
 		74C30FAC22A99F6E00FBFF12 /* MenúPrincipa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 74C30FAB22A99F6D00FBFF12 /* MenúPrincipa.mp3 */; };
+		74C30FB622A9AFC500FBFF12 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74C30FB822A9AFC500FBFF12 /* Localizable.strings */; };
 		74DBBD77227B8CDC005CDA4E /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DBBD76227B8CDC005CDA4E /* BottomBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		74ACE560227110B100A6C89A /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		74ADE9E9228DD7D700BC0ACD /* AudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		74C30FAB22A99F6D00FBFF12 /* MenúPrincipa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "MenúPrincipa.mp3"; sourceTree = "<group>"; };
+		74C30FB722A9AFC500FBFF12 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		74C30FB922A9AFC700FBFF12 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		74DBBD76227B8CDC005CDA4E /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		74FA087A2284576500B04EB7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		74FA087B2284576600B04EB7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -164,6 +167,7 @@
 				74ACE5552271005400A6C89A /* LaunchScreen.storyboard */,
 				74ACE5582271005400A6C89A /* Info.plist */,
 				744EEDA22272557800D9C8B5 /* GoogleService-Info.plist */,
+				74C30FB822A9AFC500FBFF12 /* Localizable.strings */,
 			);
 			path = SimpleMemoryGame;
 			sourceTree = "<group>";
@@ -237,6 +241,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 74ACE53A2271005300A6C89A;
 			productRefGroup = 74ACE5442271005300A6C89A /* Products */;
@@ -258,6 +263,7 @@
 				74970B3B228DDB71002C9850 /* Incorrect.wav in Resources */,
 				74ACE5542271005400A6C89A /* Assets.xcassets in Resources */,
 				74ACE5572271005400A6C89A /* LaunchScreen.storyboard in Resources */,
+				74C30FB622A9AFC500FBFF12 /* Localizable.strings in Resources */,
 				74ACE54B2271005300A6C89A /* Actions.sks in Resources */,
 				744EEDA32272557800D9C8B5 /* GoogleService-Info.plist in Resources */,
 				74970B3A228DDB71002C9850 /* Correct.wav in Resources */,
@@ -369,6 +375,15 @@
 				74FA087B2284576600B04EB7 /* es */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		74C30FB822A9AFC500FBFF12 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74C30FB722A9AFC500FBFF12 /* en */,
+				74C30FB922A9AFC700FBFF12 /* es */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

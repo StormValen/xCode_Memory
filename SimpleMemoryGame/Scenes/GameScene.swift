@@ -95,7 +95,7 @@ class GameScene: SKScene, CardSpriteDelegate, ButtonDelegate {
         
         self.backButton = AppButton(rect: CGRect(x: 0, y: 0, width: 100, height: 40), cornerRadius: 20)
         if let backButton = backButton {
-            backButton.setText(text: "HOME")
+            backButton.setText(text: NSLocalizedString("MENU", comment:""))
             // backButton.fillColor = SKColor(named: "Blue_1")!
             backButton.isUserInteractionEnabled = true
             backButton.delegate = self

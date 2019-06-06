@@ -217,7 +217,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.title = SKLabelNode(text: "!CODE LAB")
+        self.title = SKLabelNode(text: NSLocalizedString("APP_NAME", comment:""))
         
         if let title = self.title {
             
@@ -234,7 +234,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.welcome = SKLabelNode(text: "WELCOME!")
+        self.welcome = SKLabelNode(text: NSLocalizedString("WELCOME", comment:""))
         
         if let welcome = self.welcome {
             
@@ -270,7 +270,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.easyModeName = SKLabelNode(text: "EASY MODE")
+        self.easyModeName = SKLabelNode(text: NSLocalizedString("EASY_MODE", comment:""))
         
         if let easyModeName = self.easyModeName {
             
@@ -288,7 +288,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.easyModeDesc = SKLabelNode(text: "3 X 4 Game grid")
+        self.easyModeDesc = SKLabelNode(text: NSLocalizedString("EASY_GRID", comment:""))
         
         if let easyModeDesc = self.easyModeDesc {
             
@@ -310,7 +310,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         
         if let easyPlayButton = easyPlayButton {
             
-            easyPlayButton.setText(text: "PLAY")
+            easyPlayButton.setText(text: NSLocalizedString("PLAY", comment:""))
             
             easyPlayButton.fillColor = SKColor(named: "AppBlue")!
             easyPlayButton.highlightColor = SKColor(named: "AppBlueHover")!
@@ -327,7 +327,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.mediumModeName = SKLabelNode(text: "MEDIUM MODE")
+        self.mediumModeName = SKLabelNode(text: NSLocalizedString("MEDIUM_MODE", comment:""))
         
         if let mediumModeName = self.mediumModeName {
             
@@ -345,7 +345,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.mediumModeDesc = SKLabelNode(text: "4 X 5 Game grid")
+        self.mediumModeDesc = SKLabelNode(text: NSLocalizedString("MEDIUM_GRID", comment:""))
         
         if let mediumModeDesc = self.mediumModeDesc {
             
@@ -367,7 +367,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         
         if let mediumPlayButton = mediumPlayButton {
             
-            mediumPlayButton.setText(text: "PLAY")
+            mediumPlayButton.setText(text: NSLocalizedString("PLAY", comment:""))
             
             mediumPlayButton.fillColor = SKColor(named: "AppBlue")!
             mediumPlayButton.highlightColor = SKColor(named: "AppBlueHover")!
@@ -384,7 +384,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.hardModeName = SKLabelNode(text: "HARD MODE")
+        self.hardModeName = SKLabelNode(text: NSLocalizedString("HARD_MODE", comment:""))
         
         if let hardModeName = self.hardModeName {
             
@@ -402,7 +402,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.hardModeDesc = SKLabelNode(text: "5 X 6 Game grid")
+        self.hardModeDesc = SKLabelNode(text: NSLocalizedString("HARD_GRID", comment:""))
         
         if let hardModeDesc = self.hardModeDesc {
             
@@ -424,7 +424,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         
         if let hardPlayButton = hardPlayButton {
             
-            hardPlayButton.setText(text: "PLAY")
+            hardPlayButton.setText(text: NSLocalizedString("PLAY", comment:""))
             
             hardPlayButton.fillColor = SKColor(named: "AppBlue")!
             hardPlayButton.highlightColor = SKColor(named: "AppBlueHover")!
@@ -460,7 +460,7 @@ class LoginScene: SKScene, NewGameDelegate, ButtonDelegate {
         }
         
         
-        self.globalHighScoreName = SKLabelNode(text: "HIGHSCORE")
+        self.globalHighScoreName = SKLabelNode(text: NSLocalizedString("HIGHSCORE", comment:""))
         
         if let globalHighScoreName = self.globalHighScoreName {
             

@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  SimpleMemoryGame
+
+  Created by Valentin Gutierrez on 06/06/2019.
+  Copyright © 2019 p1xelP3rfect. All rights reserved.
+*/
+
+
+APP_NAME = "!CodeLab";
+WELCOME = "WELCOME!";
+EASY_MODE = "EASY MODE";
+EASY_GRID = "3 X 4 Game grid";
+MEDIUM_MODE = "MEDIUM MODE";
+MEDIUM_GRID = "4 X 5 Game grid";
+HARD_MODE = "HARD MODE";
+HARD_GRID = "5 X 6 Game grid";
+SETTINGS = "SETTINGS";
+SOUNDS = "Sounds";
+A_GAME_BY = "A game by:";
+DEV_NAME = "VALENTIN GUTIERREZ";
+BACK = "BACK";
+PLAY = "PLAY";
+MENU = "MENU";
+HIGHSCORE = "HIGHSCORE";
